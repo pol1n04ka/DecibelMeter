@@ -8,8 +8,8 @@ Font weights:
 - Semibold
 - Regular 
 
-## Roadmap
-## Logic
+## Todo
+### Logic
 - [ ] Sound recording
 - [ ] Converting aplitude to decibel
 - [ ] Core data model for sound recordings
