@@ -18,7 +18,7 @@ Font weights:
   - [ ] Audio data to storage
 
 ### UI 
-- [ ] Export data from figma 
+- [ ] Export assets from figma 
   - [ ] Fonts 
   - [ ] Images 
   - [ ] Colors 

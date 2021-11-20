@@ -7,10 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		362E78722749347C0036CAD5 /* MainFunctionalSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362E78712749347C0036CAD5 /* MainFunctionalSlide.swift */; };
+		362E7874274934950036CAD5 /* RatingSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362E7873274934950036CAD5 /* RatingSlide.swift */; };
+		362E7876274934A80036CAD5 /* FunctionalDescribingSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362E7875274934A80036CAD5 /* FunctionalDescribingSlide.swift */; };
+		362E7878274934B50036CAD5 /* SubscribeSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362E7877274934B50036CAD5 /* SubscribeSlide.swift */; };
+		362E787A2749404B0036CAD5 /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362E78792749404B0036CAD5 /* Gradient.swift */; };
+		367CE2C127492D8200AD5010 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367CE2C027492D8200AD5010 /* Collection.swift */; };
+		367CE2C327492FD500AD5010 /* OnboardingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367CE2C227492FD500AD5010 /* OnboardingManager.swift */; };
+		367CE2C527492FF300AD5010 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367CE2C427492FF300AD5010 /* Stack.swift */; };
+		3697E3A52749177E00C5BE5B /* SoundRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3697E3A42749177E00C5BE5B /* SoundRecorder.swift */; };
+		3697E3A7274917B000C5BE5B /* CircleProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3697E3A6274917B000C5BE5B /* CircleProgress.swift */; };
+		3697E3A9274917F500C5BE5B /* SoundLevelDiagram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3697E3A8274917F500C5BE5B /* SoundLevelDiagram.swift */; };
+		3697E3AB2749180500C5BE5B /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3697E3AA2749180500C5BE5B /* Label.swift */; };
+		3697E3AD2749180C00C5BE5B /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3697E3AC2749180C00C5BE5B /* Button.swift */; };
+		3697E3AF2749187400C5BE5B /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3697E3AE2749187400C5BE5B /* Image.swift */; };
 		36CCE92B2747E40600997592 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CCE92A2747E40600997592 /* AppDelegate.swift */; };
-		36CCE92D2747E40600997592 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CCE92C2747E40600997592 /* SceneDelegate.swift */; };
-		36CCE92F2747E40600997592 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CCE92E2747E40600997592 /* ViewController.swift */; };
-		36CCE9322747E40600997592 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36CCE9302747E40600997592 /* Main.storyboard */; };
 		36CCE9352747E40600997592 /* DecibelMeter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 36CCE9332747E40600997592 /* DecibelMeter.xcdatamodeld */; };
 		36CCE9372747E40800997592 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36CCE9362747E40800997592 /* Assets.xcassets */; };
 		36CCE93A2747E40800997592 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36CCE9382747E40800997592 /* LaunchScreen.storyboard */; };
@@ -22,14 +33,28 @@
 		36D046282747F84200EDE28A /* SavedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D046272747F84100EDE28A /* SavedView.swift */; };
 		36D0462A2747F84C00EDE28A /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D046292747F84C00EDE28A /* RecordView.swift */; };
 		36D0462C2747F87100EDE28A /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D0462B2747F87100EDE28A /* Colors.swift */; };
+		36D046302747FA0000EDE28A /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 36D0462D2747FA0000EDE28A /* OpenSans-Regular.ttf */; };
+		36D046312747FA0000EDE28A /* OpenSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 36D0462E2747FA0000EDE28A /* OpenSans-SemiBold.ttf */; };
+		36D046322747FA0000EDE28A /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 36D0462F2747FA0000EDE28A /* OpenSans-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		362E78712749347C0036CAD5 /* MainFunctionalSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFunctionalSlide.swift; sourceTree = "<group>"; };
+		362E7873274934950036CAD5 /* RatingSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingSlide.swift; sourceTree = "<group>"; };
+		362E7875274934A80036CAD5 /* FunctionalDescribingSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionalDescribingSlide.swift; sourceTree = "<group>"; };
+		362E7877274934B50036CAD5 /* SubscribeSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeSlide.swift; sourceTree = "<group>"; };
+		362E78792749404B0036CAD5 /* Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
+		367CE2C027492D8200AD5010 /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
+		367CE2C227492FD500AD5010 /* OnboardingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingManager.swift; sourceTree = "<group>"; };
+		367CE2C427492FF300AD5010 /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
+		3697E3A42749177E00C5BE5B /* SoundRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundRecorder.swift; sourceTree = "<group>"; };
+		3697E3A6274917B000C5BE5B /* CircleProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleProgress.swift; sourceTree = "<group>"; };
+		3697E3A8274917F500C5BE5B /* SoundLevelDiagram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundLevelDiagram.swift; sourceTree = "<group>"; };
+		3697E3AA2749180500C5BE5B /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
+		3697E3AC2749180C00C5BE5B /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		3697E3AE2749187400C5BE5B /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		36CCE9272747E40600997592 /* DecibelMeter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DecibelMeter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36CCE92A2747E40600997592 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		36CCE92C2747E40600997592 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		36CCE92E2747E40600997592 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		36CCE9312747E40600997592 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		36CCE9342747E40600997592 /* DecibelMeter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DecibelMeter.xcdatamodel; sourceTree = "<group>"; };
 		36CCE9362747E40800997592 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		36CCE9392747E40800997592 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -42,6 +67,9 @@
 		36D046272747F84100EDE28A /* SavedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedView.swift; sourceTree = "<group>"; };
 		36D046292747F84C00EDE28A /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
 		36D0462B2747F87100EDE28A /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		36D0462D2747FA0000EDE28A /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		36D0462E2747FA0000EDE28A /* OpenSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		36D0462F2747FA0000EDE28A /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +83,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		367CE2C62749330B00AD5010 /* Slides */ = {
+			isa = PBXGroup;
+			children = (
+				362E78712749347C0036CAD5 /* MainFunctionalSlide.swift */,
+				362E7873274934950036CAD5 /* RatingSlide.swift */,
+				362E7875274934A80036CAD5 /* FunctionalDescribingSlide.swift */,
+				362E7877274934B50036CAD5 /* SubscribeSlide.swift */,
+			);
+			path = Slides;
+			sourceTree = "<group>";
+		};
+		3697E3A3274916A500C5BE5B /* SoundRecorder */ = {
+			isa = PBXGroup;
+			children = (
+				3697E3A42749177E00C5BE5B /* SoundRecorder.swift */,
+			);
+			path = SoundRecorder;
+			sourceTree = "<group>";
+		};
 		36ADD0342747EFB900B9F90D /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -69,6 +116,14 @@
 		36ADD0352747EFBD00B9F90D /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				3697E3A6274917B000C5BE5B /* CircleProgress.swift */,
+				3697E3A8274917F500C5BE5B /* SoundLevelDiagram.swift */,
+				3697E3AA2749180500C5BE5B /* Label.swift */,
+				3697E3AC2749180C00C5BE5B /* Button.swift */,
+				3697E3AE2749187400C5BE5B /* Image.swift */,
+				367CE2C027492D8200AD5010 /* Collection.swift */,
+				367CE2C427492FF300AD5010 /* Stack.swift */,
+				362E78792749404B0036CAD5 /* Gradient.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -76,12 +131,12 @@
 		36ADD0362747EFC500B9F90D /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				36D046192747F5F100EDE28A /* TabBar.swift */,
+				36ADD0392747EFE900B9F90D /* Onboarding */,
 				36D046172747F5AF00EDE28A /* Subscribe */,
 				36ADD03A2747F00800B9F90D /* Settings */,
-				36ADD0392747EFE900B9F90D /* Onboarding */,
 				36ADD0382747EFE300B9F90D /* Saved */,
 				36ADD0372747EFD900B9F90D /* Record */,
-				36D046192747F5F100EDE28A /* TabBar.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -105,7 +160,9 @@
 		36ADD0392747EFE900B9F90D /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				367CE2C62749330B00AD5010 /* Slides */,
 				36D046252747F83B00EDE28A /* OnboardingView.swift */,
+				367CE2C227492FD500AD5010 /* OnboardingManager.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -137,12 +194,10 @@
 		36CCE9292747E40600997592 /* DecibelMeter */ = {
 			isa = PBXGroup;
 			children = (
+				3697E3A3274916A500C5BE5B /* SoundRecorder */,
 				36D0461B2747F60800EDE28A /* Persist */,
 				36ADD0342747EFB900B9F90D /* UI */,
 				36CCE92A2747E40600997592 /* AppDelegate.swift */,
-				36CCE92C2747E40600997592 /* SceneDelegate.swift */,
-				36CCE92E2747E40600997592 /* ViewController.swift */,
-				36CCE9302747E40600997592 /* Main.storyboard */,
 				36CCE9362747E40800997592 /* Assets.xcassets */,
 				36CCE9382747E40800997592 /* LaunchScreen.storyboard */,
 				36CCE93B2747E40800997592 /* Info.plist */,
@@ -162,6 +217,9 @@
 		36D046182747F5BD00EDE28A /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				36D0462F2747FA0000EDE28A /* OpenSans-Bold.ttf */,
+				36D0462D2747FA0000EDE28A /* OpenSans-Regular.ttf */,
+				36D0462E2747FA0000EDE28A /* OpenSans-SemiBold.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -250,7 +308,9 @@
 			files = (
 				36CCE93A2747E40800997592 /* LaunchScreen.storyboard in Resources */,
 				36CCE9372747E40800997592 /* Assets.xcassets in Resources */,
-				36CCE9322747E40600997592 /* Main.storyboard in Resources */,
+				36D046322747FA0000EDE28A /* OpenSans-Bold.ttf in Resources */,
+				36D046312747FA0000EDE28A /* OpenSans-SemiBold.ttf in Resources */,
+				36D046302747FA0000EDE28A /* OpenSans-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,31 +322,35 @@
 			buildActionMask = 2147483647;
 			files = (
 				36D046262747F83B00EDE28A /* OnboardingView.swift in Sources */,
+				362E78722749347C0036CAD5 /* MainFunctionalSlide.swift in Sources */,
 				36D0462C2747F87100EDE28A /* Colors.swift in Sources */,
-				36CCE92F2747E40600997592 /* ViewController.swift in Sources */,
 				36D046222747F82900EDE28A /* Subscribe.swift in Sources */,
 				36D046242747F83000EDE28A /* SettingsView.swift in Sources */,
+				362E7878274934B50036CAD5 /* SubscribeSlide.swift in Sources */,
+				3697E3A9274917F500C5BE5B /* SoundLevelDiagram.swift in Sources */,
 				36CCE92B2747E40600997592 /* AppDelegate.swift in Sources */,
+				367CE2C327492FD500AD5010 /* OnboardingManager.swift in Sources */,
+				3697E3A7274917B000C5BE5B /* CircleProgress.swift in Sources */,
 				36D0461E2747F61A00EDE28A /* Persist.swift in Sources */,
+				362E7876274934A80036CAD5 /* FunctionalDescribingSlide.swift in Sources */,
 				36D0462A2747F84C00EDE28A /* RecordView.swift in Sources */,
+				362E7874274934950036CAD5 /* RatingSlide.swift in Sources */,
+				367CE2C127492D8200AD5010 /* Collection.swift in Sources */,
+				3697E3AF2749187400C5BE5B /* Image.swift in Sources */,
 				36CCE9352747E40600997592 /* DecibelMeter.xcdatamodeld in Sources */,
-				36CCE92D2747E40600997592 /* SceneDelegate.swift in Sources */,
+				3697E3AD2749180C00C5BE5B /* Button.swift in Sources */,
 				36D0461A2747F5F100EDE28A /* TabBar.swift in Sources */,
+				3697E3A52749177E00C5BE5B /* SoundRecorder.swift in Sources */,
+				3697E3AB2749180500C5BE5B /* Label.swift in Sources */,
+				367CE2C527492FF300AD5010 /* Stack.swift in Sources */,
 				36D046282747F84200EDE28A /* SavedView.swift in Sources */,
+				362E787A2749404B0036CAD5 /* Gradient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		36CCE9302747E40600997592 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				36CCE9312747E40600997592 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		36CCE9382747E40800997592 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -349,7 +413,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -404,7 +468,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -426,10 +490,9 @@
 				INFOPLIST_FILE = DecibelMeter/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -455,10 +518,9 @@
 				INFOPLIST_FILE = DecibelMeter/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
