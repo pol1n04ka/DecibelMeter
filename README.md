@@ -18,14 +18,15 @@ Font weights:
   - [ ] Audio data to storage
 
 ### UI 
-- [ ] Export assets from figma 
-  - [ ] Fonts 
-  - [ ] Images 
-  - [ ] Colors 
-- [ ] Components
-  - [ ] Constructor for labels 
-  - [ ] Constructor for buttons
-  - [ ] Constructor for images
+- [X] Export assets from figma 
+  - [X] Fonts 
+  - [X] Images 
+  - [X] Colors 
+- [X] Components
+  - [X] Constructor for labels 
+  - [X] Constructor for buttons
+  - [X] Constructor for images
+- [X] Tab bar
 - [ ] Record screen 
   - [ ] Circle noise meter
   - [ ] Noise level diagram
@@ -35,9 +36,12 @@ Font weights:
   - [ ] Table view
   - [ ] Cell for record
 - [ ] Settings screen 
-- [ ] Splashscreen
-- [ ] Onboarding
-  - [ ] Constructor
+  - [X] Table View
+  - [ ] Table view cells
+- [X] Splashscreen
+- [X] Onboarding
+  - [X] Constructor
+  - [X] Onboarding manager
 - [ ] Subscribe screens
   - [ ] Constructor
 - [ ] Export icons from sketch
