@@ -28,10 +28,10 @@ Font weights:
   - [X] Constructor for images
 - [X] Tab bar
 - [ ] Record screen 
-  - [ ] Circle noise meter
+  - [X] Circle noise meter
   - [ ] Noise level diagram
-  - [ ] Record/stop button 
-  - [ ] Avg/min/max labels
+  - [X] Record/stop button 
+  - [X] Avg/min/max labels
 - [ ] Saved screen
   - [ ] Table view
   - [ ] Cell for record
