@@ -40,6 +40,22 @@ class Button: UIButton {
             titleLabel?.font = UIFont(name: "OpenSans-Regular", size: 12)!
         case .record:
             setImage(UIImage(named: "Microphone"), for: .normal)
+            backgroundColor = UIColor(named: "RecordButtonColor")
+            
+            let radius: CGFloat
+            let size: CGFloat
+            
+            if Constants().screenSize.height <= 568 {
+                radius = 32.5
+                size = 65
+            } else {
+                radius = 40
+                size = 80
+            }
+            
+            layer.cornerRadius = radius
+            heightAnchor.constraint(equalToConstant: size).isActive = true
+            widthAnchor.constraint(equalToConstant: size).isActive = true
         case .close:
             setImage(UIImage(named: "Exit"), for: .normal)
             heightAnchor.constraint(equalToConstant: 25).isActive = true

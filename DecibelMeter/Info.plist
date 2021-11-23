@@ -8,5 +8,7 @@
 		<string>OpenSans-Semibold.ttf</string>
 		<string>OpenSans-Regular.ttf</string>
 	</array>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleLightContent</string>
 </dict>
 </plist>

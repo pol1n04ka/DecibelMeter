@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0752CED67E608FADAFAB6C9A /* Pods_DecibelMeter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 264DDBDBE32EDDBB4A5B99D4 /* Pods_DecibelMeter.framework */; };
 		362E78722749347C0036CAD5 /* MainFunctionalSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362E78712749347C0036CAD5 /* MainFunctionalSlide.swift */; };
 		362E7874274934950036CAD5 /* RatingSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362E7873274934950036CAD5 /* RatingSlide.swift */; };
 		362E7876274934A80036CAD5 /* FunctionalDescribingSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362E7875274934A80036CAD5 /* FunctionalDescribingSlide.swift */; };
@@ -16,7 +17,6 @@
 		367CE2C327492FD500AD5010 /* OnboardingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367CE2C227492FD500AD5010 /* OnboardingManager.swift */; };
 		367CE2C527492FF300AD5010 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367CE2C427492FF300AD5010 /* Stack.swift */; };
 		3697E3A52749177E00C5BE5B /* SoundRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3697E3A42749177E00C5BE5B /* SoundRecorder.swift */; };
-		3697E3A7274917B000C5BE5B /* CircleProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3697E3A6274917B000C5BE5B /* CircleProgress.swift */; };
 		3697E3A9274917F500C5BE5B /* SoundLevelDiagram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3697E3A8274917F500C5BE5B /* SoundLevelDiagram.swift */; };
 		3697E3AB2749180500C5BE5B /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3697E3AA2749180500C5BE5B /* Label.swift */; };
 		3697E3AD2749180C00C5BE5B /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3697E3AC2749180C00C5BE5B /* Button.swift */; };
@@ -32,13 +32,16 @@
 		36D046262747F83B00EDE28A /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D046252747F83B00EDE28A /* OnboardingView.swift */; };
 		36D046282747F84200EDE28A /* SavedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D046272747F84100EDE28A /* SavedView.swift */; };
 		36D0462A2747F84C00EDE28A /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D046292747F84C00EDE28A /* RecordView.swift */; };
-		36D0462C2747F87100EDE28A /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D0462B2747F87100EDE28A /* Colors.swift */; };
 		36D046302747FA0000EDE28A /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 36D0462D2747FA0000EDE28A /* OpenSans-Regular.ttf */; };
 		36D046312747FA0000EDE28A /* OpenSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 36D0462E2747FA0000EDE28A /* OpenSans-SemiBold.ttf */; };
 		36D046322747FA0000EDE28A /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 36D0462F2747FA0000EDE28A /* OpenSans-Bold.ttf */; };
+		36D336AE274C0D0900D0111A /* AvgMinMaxBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D336AD274C0D0900D0111A /* AvgMinMaxBar.swift */; };
+		36D336B0274C334B00D0111A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D336AF274C334B00D0111A /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		264DDBDBE32EDDBB4A5B99D4 /* Pods_DecibelMeter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DecibelMeter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		26A70E6834C96DE7E2DAA6C9 /* Pods-DecibelMeter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DecibelMeter.release.xcconfig"; path = "Target Support Files/Pods-DecibelMeter/Pods-DecibelMeter.release.xcconfig"; sourceTree = "<group>"; };
 		362E78712749347C0036CAD5 /* MainFunctionalSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFunctionalSlide.swift; sourceTree = "<group>"; };
 		362E7873274934950036CAD5 /* RatingSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingSlide.swift; sourceTree = "<group>"; };
 		362E7875274934A80036CAD5 /* FunctionalDescribingSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionalDescribingSlide.swift; sourceTree = "<group>"; };
@@ -48,7 +51,6 @@
 		367CE2C227492FD500AD5010 /* OnboardingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingManager.swift; sourceTree = "<group>"; };
 		367CE2C427492FF300AD5010 /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		3697E3A42749177E00C5BE5B /* SoundRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundRecorder.swift; sourceTree = "<group>"; };
-		3697E3A6274917B000C5BE5B /* CircleProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleProgress.swift; sourceTree = "<group>"; };
 		3697E3A8274917F500C5BE5B /* SoundLevelDiagram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundLevelDiagram.swift; sourceTree = "<group>"; };
 		3697E3AA2749180500C5BE5B /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		3697E3AC2749180C00C5BE5B /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
@@ -66,10 +68,12 @@
 		36D046252747F83B00EDE28A /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		36D046272747F84100EDE28A /* SavedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedView.swift; sourceTree = "<group>"; };
 		36D046292747F84C00EDE28A /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
-		36D0462B2747F87100EDE28A /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		36D0462D2747FA0000EDE28A /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		36D0462E2747FA0000EDE28A /* OpenSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiBold.ttf"; sourceTree = "<group>"; };
 		36D0462F2747FA0000EDE28A /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
+		36D336AD274C0D0900D0111A /* AvgMinMaxBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvgMinMaxBar.swift; sourceTree = "<group>"; };
+		36D336AF274C334B00D0111A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		4C86C30D4D39DF74D969A667 /* Pods-DecibelMeter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DecibelMeter.debug.xcconfig"; path = "Target Support Files/Pods-DecibelMeter/Pods-DecibelMeter.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0752CED67E608FADAFAB6C9A /* Pods_DecibelMeter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,10 +110,10 @@
 		36ADD0342747EFB900B9F90D /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				36D0461F2747F80100EDE28A /* Colors */,
 				36D046182747F5BD00EDE28A /* Fonts */,
 				36ADD0362747EFC500B9F90D /* Screens */,
 				36ADD0352747EFBD00B9F90D /* Components */,
+				36D336AF274C334B00D0111A /* Constants.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -116,7 +121,6 @@
 		36ADD0352747EFBD00B9F90D /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				3697E3A6274917B000C5BE5B /* CircleProgress.swift */,
 				3697E3A8274917F500C5BE5B /* SoundLevelDiagram.swift */,
 				3697E3AA2749180500C5BE5B /* Label.swift */,
 				3697E3AC2749180C00C5BE5B /* Button.swift */,
@@ -124,6 +128,7 @@
 				367CE2C027492D8200AD5010 /* Collection.swift */,
 				367CE2C427492FF300AD5010 /* Stack.swift */,
 				362E78792749404B0036CAD5 /* Gradient.swift */,
+				36D336AD274C0D0900D0111A /* AvgMinMaxBar.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -180,6 +185,8 @@
 			children = (
 				36CCE9292747E40600997592 /* DecibelMeter */,
 				36CCE9282747E40600997592 /* Products */,
+				AEB1B7B2DC66555CA9F7B896 /* Pods */,
+				8566964C20D0CC2AB36B1E0B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -240,12 +247,21 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		36D0461F2747F80100EDE28A /* Colors */ = {
+		8566964C20D0CC2AB36B1E0B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				36D0462B2747F87100EDE28A /* Colors.swift */,
+				264DDBDBE32EDDBB4A5B99D4 /* Pods_DecibelMeter.framework */,
 			);
-			path = Colors;
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AEB1B7B2DC66555CA9F7B896 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4C86C30D4D39DF74D969A667 /* Pods-DecibelMeter.debug.xcconfig */,
+				26A70E6834C96DE7E2DAA6C9 /* Pods-DecibelMeter.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,9 +271,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 36CCE93E2747E40800997592 /* Build configuration list for PBXNativeTarget "DecibelMeter" */;
 			buildPhases = (
+				6BD6DCBB037CB543F2263B40 /* [CP] Check Pods Manifest.lock */,
 				36CCE9232747E40600997592 /* Sources */,
 				36CCE9242747E40600997592 /* Frameworks */,
 				36CCE9252747E40600997592 /* Resources */,
+				1E8A60619E9747576F1E2B8F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -316,6 +334,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1E8A60619E9747576F1E2B8F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DecibelMeter/Pods-DecibelMeter-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DecibelMeter/Pods-DecibelMeter-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DecibelMeter/Pods-DecibelMeter-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6BD6DCBB037CB543F2263B40 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DecibelMeter-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		36CCE9232747E40600997592 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -323,14 +383,13 @@
 			files = (
 				36D046262747F83B00EDE28A /* OnboardingView.swift in Sources */,
 				362E78722749347C0036CAD5 /* MainFunctionalSlide.swift in Sources */,
-				36D0462C2747F87100EDE28A /* Colors.swift in Sources */,
+				36D336AE274C0D0900D0111A /* AvgMinMaxBar.swift in Sources */,
 				36D046222747F82900EDE28A /* Subscribe.swift in Sources */,
 				36D046242747F83000EDE28A /* SettingsView.swift in Sources */,
 				362E7878274934B50036CAD5 /* SubscribeSlide.swift in Sources */,
 				3697E3A9274917F500C5BE5B /* SoundLevelDiagram.swift in Sources */,
 				36CCE92B2747E40600997592 /* AppDelegate.swift in Sources */,
 				367CE2C327492FD500AD5010 /* OnboardingManager.swift in Sources */,
-				3697E3A7274917B000C5BE5B /* CircleProgress.swift in Sources */,
 				36D0461E2747F61A00EDE28A /* Persist.swift in Sources */,
 				362E7876274934A80036CAD5 /* FunctionalDescribingSlide.swift in Sources */,
 				36D0462A2747F84C00EDE28A /* RecordView.swift in Sources */,
@@ -345,6 +404,7 @@
 				367CE2C527492FF300AD5010 /* Stack.swift in Sources */,
 				36D046282747F84200EDE28A /* SavedView.swift in Sources */,
 				362E787A2749404B0036CAD5 /* Gradient.swift in Sources */,
+				36D336B0274C334B00D0111A /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -480,6 +540,7 @@
 		};
 		36CCE93F2747E40800997592 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4C86C30D4D39DF74D969A667 /* Pods-DecibelMeter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -490,8 +551,9 @@
 				INFOPLIST_FILE = DecibelMeter/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -508,6 +570,7 @@
 		};
 		36CCE9402747E40800997592 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26A70E6834C96DE7E2DAA6C9 /* Pods-DecibelMeter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -518,8 +581,9 @@
 				INFOPLIST_FILE = DecibelMeter/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

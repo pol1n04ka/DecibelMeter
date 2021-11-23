@@ -57,6 +57,8 @@ extension TabBar {
         viewControllers = views
         
         self.tabBar.backgroundColor = UIColor(named: "BackgroundColorTabBar")
+        self.tabBar.isTranslucent = false
+        self.tabBar.barTintColor = UIColor(named: "BackgroundColorTabBar")
         self.tabBar.tintColor = .white
         self.tabBar.unselectedItemTintColor = .white
     }
