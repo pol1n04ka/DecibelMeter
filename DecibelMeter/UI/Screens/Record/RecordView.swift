@@ -14,17 +14,25 @@
 import UIKit
 import KDCircularProgress
 import Charts
+import SwiftCharts
+import AVFAudio
 
 
 class RecordView: UIViewController {
     
+    // MARK: Audio recorder
+    let recorder = Recorder()
+    
+    // MARK: UI elements
     lazy var chart = BarChartView()
     
-    lazy var decibelLabel = Label(style: .decibelHeading, "0")
-    lazy var timeLabel = Label(style: .time, "00:00")
+    lazy var decibelLabel   = Label(style: .decibelHeading, "0")
+    lazy var timeLabel      = Label(style: .time, "00:00")
     lazy var timeTitleLabel = Label(style: .timeTitle, "TIME")
     
-    lazy var progress = KDCircularProgress(frame: CGRect(x: 0, y: 0, width: view.frame.width / 1.2, height: view.frame.width / 1.2))
+    lazy var progress = KDCircularProgress(
+        frame: CGRect(x: 0, y: 0, width: view.frame.width / 1.2, height: view.frame.width / 1.2)
+    )
     
     lazy var verticalStack = StackView(axis: .vertical)
     
@@ -35,7 +43,27 @@ class RecordView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        recorder.delegate   = self
+        recorder.avDelegate = self
+        
         setupView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
+        startRecordingAudio()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        recorder.stopMonitoring()
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -45,6 +73,18 @@ class RecordView: UIViewController {
 }
 
 
+// MARK: Start recording
+extension RecordView {
+    
+    private func startRecordingAudio() {
+        recorder.record(self)
+        recorder.startMonitoring()
+    }
+    
+}
+
+
+// MARK: Setup view
 extension RecordView {
     
     private func setupView() {
@@ -103,10 +143,9 @@ extension RecordView {
         }
         
         NSLayoutConstraint.activate(constraints)
-        
-        progress.animate(toAngle: 90, duration: 2, completion: nil)
     }
     
+    // MARK: Setup circle view
     private func setupCircleView() {
         progress.startAngle = -270
         progress.progressThickness = 0.6
@@ -129,21 +168,84 @@ extension RecordView {
 }
 
 
+// MARK: Setup chart
 extension RecordView: ChartViewDelegate {
     
     func setupChart() {
+        chart.doubleTapToZoomEnabled = false
+        chart.gridBackgroundColor = .white
+        chart.highlightPerTapEnabled = false
+        chart.clipDataToContentEnabled = false
+    
         var entries = [BarChartDataEntry]()
         
-        for x in 0..<10 {
-            entries.append(BarChartDataEntry(x: Double(x), y: Double(x)))
+        for x in 0..<recorder.decibels.count {
+            entries.append(BarChartDataEntry(x: Double(x), y: Double(recorder.decibels[x])))
         }
         
         let set = BarChartDataSet(entries: entries)
-        set.colors = [NSUIColor(_colorLiteralRed: 253, green: 163, blue: 34, alpha: 1)]
+        set.colors = ChartColorTemplates.joyful()
         
         let data = BarChartData(dataSet: set)
         
         chart.data = data
+    }
+    
+}
+
+
+// MARK: Recorder delegate
+extension RecordView: AVAudioRecorderDelegate, RecorderDelegate {
+    
+    func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
+        print("Шалость удалась!")
+    }
+    
+    func recorderDidFailToAchievePermission(_ recorder: Recorder) {
+        let alertController = UIAlertController(
+            title: "Microphone permissions denied",
+            message: "Microphone permissions have been denied for this app. You can change this by going to Settings",
+            preferredStyle: .alert
+        )
+
+        let cancelButton = UIAlertAction(
+            title: "Cancel",
+            style: .cancel,
+            handler: nil
+        )
+
+        let settingsAction = UIAlertAction(
+            title: "Settings",
+            style: .default
+        ) { _ in
+            UIApplication.shared.open(
+                URL(string: UIApplication.openSettingsURLString)!,
+                options: [:],
+                completionHandler: nil)
+        }
+
+        alertController.addAction(cancelButton)
+        alertController.addAction(settingsAction)
+
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func recorder(_ recorder: Recorder, didCaptureDecibels decibels: Int) {
+        self.decibelLabel.text = "\(decibels)"
+        
+        let degree = 360 / 96
+        
+        progress.animate(toAngle: Double(degree * decibels), duration: 0.2, completion: nil)
+        
+        guard let min = recorder.min else { return }
+        guard let max = recorder.max else { return }
+        guard let avg = recorder.avg else { return }
+        
+        avgBar.avgDecibelLabel.text = "\(avg)"
+        avgBar.minDecibelLabel.text = "\(min)"
+        avgBar.maxDecibelLabel.text = "\(max)"
+        
+        setupChart()
     }
     
 }
