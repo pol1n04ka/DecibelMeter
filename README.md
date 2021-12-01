@@ -10,9 +10,9 @@ Font weights:
 
 ## Todo
 ### Logic
-- [ ] Sound recording
-- [ ] Converting aplitude to decibel
-- [ ] Core data model for sound recordings
+- [X] Sound recording
+- [X] Converting aplitude to decibel
+- [X] Core data model for sound recordings
 - [ ] Saving audio
   - [ ] Information to core data 
   - [ ] Audio data to storage
@@ -35,9 +35,9 @@ Font weights:
 - [ ] Saved screen
   - [ ] Table view
   - [ ] Cell for record
-- [ ] Settings screen 
+- [X] Settings screen 
   - [X] Table View
-  - [ ] Table view cells
+  - [X] Table view cells
 - [X] Splashscreen
 - [X] Onboarding
   - [X] Constructor
