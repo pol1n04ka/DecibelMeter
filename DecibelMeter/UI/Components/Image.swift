@@ -16,6 +16,13 @@ class ImageView: UIImageView {
         case rating
         case soundLevels
         case soundMeter
+        case chevron
+        case timeIcon
+        case feedbackIcon
+        case privacyIcon
+        case documentIcon
+        case playIcon
+        case shareIcon
     }
     
     init(image: Image) {
@@ -35,6 +42,20 @@ class ImageView: UIImageView {
             self.image = UIImage(named: "SoundLevels")
         case .soundMeter:
             self.image = UIImage(named: "SoundMeter")
+        case .chevron:
+            self.image = UIImage(named: "Chevron")
+        case .timeIcon:
+            self.image = UIImage(named: "Clock")
+        case .feedbackIcon:
+            self.image = UIImage(named: "Feedback")
+        case .privacyIcon:
+            self.image = UIImage(named: "Privacy")
+        case .documentIcon:
+            self.image = UIImage(named: "Document")
+        case .playIcon:
+            self.image = UIImage(named: "Play")
+        case .shareIcon:
+            self.image = UIImage(named: "Share")
         }
     }
     

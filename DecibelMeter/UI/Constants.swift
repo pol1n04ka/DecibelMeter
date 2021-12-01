@@ -12,6 +12,14 @@ public class Constants {
     
     public static let shared = Constants()
     
+    public var isRecordingAtLaunchEnabled: Bool {
+        get {
+            UserDefaults.standard.bool(forKey: #function)
+        } set {
+            UserDefaults.standard.setValue(newValue, forKey: #function)
+        }
+    }
+    
     public var isBig: Bool {
         if screenSize.height > 667 {
             return true

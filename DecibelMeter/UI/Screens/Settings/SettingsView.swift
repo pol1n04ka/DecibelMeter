@@ -87,13 +87,58 @@ extension SettingsView: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
+        var cell = SettingsCell(
+            reuseIdentifier: "cell",
+            icon: ImageView(image: .documentIcon),
+            label: Label(style: .tableLabel, "User agreement"),
+            isUsingSwitch: false
+        )
         
-        cell?.textLabel?.text = "hello"
-        cell?.textLabel?.textColor = .white
-        cell?.backgroundColor = .clear
+        switch indexPath.row {
+        case 0:
+            cell = SettingsCell(
+                reuseIdentifier: "cell",
+                icon: ImageView(image: .feedbackIcon),
+                label: Label(style: .tableLabel, "Feedback"),
+                isUsingSwitch: false
+            )
+        case 1:
+            cell = SettingsCell(
+                reuseIdentifier: "cell",
+                icon: ImageView(image: .shareIcon),
+                label: Label(style: .tableLabel, "Share with friend"),
+                isUsingSwitch: false
+            )
+        case 2:
+            cell = SettingsCell(
+                reuseIdentifier: "cell",
+                icon: ImageView(image: .privacyIcon),
+                label: Label(style: .tableLabel, "Privacy policy"),
+                isUsingSwitch: false
+            )
+        case 3:
+            cell = SettingsCell(
+                reuseIdentifier: "cell",
+                icon: ImageView(image: .documentIcon),
+                label: Label(style: .tableLabel, "User agreement"),
+                isUsingSwitch: false
+            )
+        case 4:
+            cell = SettingsCell(
+                reuseIdentifier: "cell",
+                icon: ImageView(image: .playIcon),
+                label: Label(style: .tableLabel, "Auto-Start on launch"),
+                isUsingSwitch: true
+            )
+        default:
+            cell
+        }
         
-        return cell!
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     

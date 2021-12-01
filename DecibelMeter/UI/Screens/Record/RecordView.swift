@@ -13,19 +13,18 @@
 
 import UIKit
 import KDCircularProgress
-import Charts
 import SwiftCharts
 import AVFAudio
 
 
 class RecordView: UIViewController {
     
+    private var isRecording = false
+    
     // MARK: Audio recorder
     let recorder = Recorder()
     
     // MARK: UI elements
-    lazy var chart = BarChartView()
-    
     lazy var decibelLabel   = Label(style: .decibelHeading, "0")
     lazy var timeLabel      = Label(style: .time, "00:00")
     lazy var timeTitleLabel = Label(style: .timeTitle, "TIME")
@@ -47,17 +46,17 @@ class RecordView: UIViewController {
         recorder.avDelegate = self
         
         setupView()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
         
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
+        var minutes = (85 - (85 % 60)) / 60
+        var seconds = 85 - (minutes * 60)
         
-        startRecordingAudio()
+        print(minutes)
+        print(seconds)
+        
+        if Constants().isRecordingAtLaunchEnabled {
+            isRecording = true
+            startRecordingAudio()
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -73,12 +72,39 @@ class RecordView: UIViewController {
 }
 
 
-// MARK: Start recording
+// MARK: Record/stop button action
+extension RecordView {
+    
+    @objc func startOrStopRecord() {
+        if isRecording {
+            isRecording = false
+            stopRecordingAudio()
+        } else {
+            isRecording = true
+            startRecordingAudio()
+        }
+    }
+    
+}
+
+
+// MARK: Start/stop recording
 extension RecordView {
     
     private func startRecordingAudio() {
         recorder.record(self)
         recorder.startMonitoring()
+    }
+    
+    private func stopRecordingAudio() {
+        recorder.stopMonitoring()
+        recorder.stop()
+        progress.animate(toAngle: 0, duration: 0.2, completion: nil)
+        decibelLabel.text = "0"
+        timeLabel.text = "00:00"
+        avgBar.maxDecibelLabel.text = "0"
+        avgBar.minDecibelLabel.text = "0"
+        avgBar.avgDecibelLabel.text = "0"
     }
     
 }
@@ -90,6 +116,8 @@ extension RecordView {
     private func setupView() {
         view.backgroundColor = UIColor(named: "BackgroundColor")
         
+        recordButton.addTarget(self, action: #selector(startOrStopRecord), for: .touchUpInside)
+        
         setupCircleView()
         
         view.addSubview(progress)
@@ -98,13 +126,15 @@ extension RecordView {
         verticalStack.addArrangedSubview(timeLabel)
         verticalStack.addArrangedSubview(timeTitleLabel)
         
-        view.addSubview(chart)
-        setupChart()
-        chart.translatesAutoresizingMaskIntoConstraints = false
+//        view.addSubview(chart)
+//        setupChart()
+//        chart.translatesAutoresizingMaskIntoConstraints = false
         
-        if Constants().isBig {
-            view.addSubview(avgBar)
-        }
+//        if Constants().isBig {
+//            view.addSubview(avgBar)
+//        }
+        
+        view.addSubview(avgBar)
         
         view.addSubview(recordButton)
         
@@ -127,10 +157,10 @@ extension RecordView {
             verticalStack.centerYAnchor.constraint(equalTo: progress.centerYAnchor),
             verticalStack.centerXAnchor.constraint(equalTo: progress.centerXAnchor),
             
-            chart.topAnchor.constraint(equalTo: progress.bottomAnchor, constant: 10),
-            chart.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            chart.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            chart.bottomAnchor.constraint(equalTo: recordButton.topAnchor, constant: -10),
+//            chart.topAnchor.constraint(equalTo: progress.bottomAnchor, constant: 10),
+//            chart.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+//            chart.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+//            chart.bottomAnchor.constraint(equalTo: recordButton.topAnchor, constant: -10),
             
             recordButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30),
             recordButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
@@ -142,7 +172,7 @@ extension RecordView {
             constraints = constraintsForSmallDisplay
         }
         
-        NSLayoutConstraint.activate(constraints)
+        NSLayoutConstraint.activate(constraintsForBigDisplay)
     }
     
     // MARK: Setup circle view
@@ -168,30 +198,30 @@ extension RecordView {
 }
 
 
-// MARK: Setup chart
-extension RecordView: ChartViewDelegate {
-    
-    func setupChart() {
-        chart.doubleTapToZoomEnabled = false
-        chart.gridBackgroundColor = .white
-        chart.highlightPerTapEnabled = false
-        chart.clipDataToContentEnabled = false
-    
-        var entries = [BarChartDataEntry]()
-        
-        for x in 0..<recorder.decibels.count {
-            entries.append(BarChartDataEntry(x: Double(x), y: Double(recorder.decibels[x])))
-        }
-        
-        let set = BarChartDataSet(entries: entries)
-        set.colors = ChartColorTemplates.joyful()
-        
-        let data = BarChartData(dataSet: set)
-        
-        chart.data = data
-    }
-    
-}
+//// MARK: Setup chart
+//extension RecordView: ChartViewDelegate {
+//
+//    func setupChart() {
+//        chart.doubleTapToZoomEnabled = false
+//        chart.gridBackgroundColor = .white
+//        chart.highlightPerTapEnabled = false
+//        chart.clipDataToContentEnabled = false
+//
+//        var entries = [BarChartDataEntry]()
+//
+//        for x in 0..<recorder.decibels.count {
+//            entries.append(BarChartDataEntry(x: Double(x), y: Double(recorder.decibels[x])))
+//        }
+//
+//        let set = BarChartDataSet(entries: entries)
+//        set.colors = ChartColorTemplates.joyful()
+//
+//        let data = BarChartData(dataSet: set)
+//
+//        chart.data = data
+//    }
+//
+//}
 
 
 // MARK: Recorder delegate
@@ -231,21 +261,38 @@ extension RecordView: AVAudioRecorderDelegate, RecorderDelegate {
     }
     
     func recorder(_ recorder: Recorder, didCaptureDecibels decibels: Int) {
-        self.decibelLabel.text = "\(decibels)"
-        
         let degree = 360 / 96
-        
-        progress.animate(toAngle: Double(degree * decibels), duration: 0.2, completion: nil)
         
         guard let min = recorder.min else { return }
         guard let max = recorder.max else { return }
         guard let avg = recorder.avg else { return }
         
+        let minutes = (recorder.seconds - (recorder.seconds % 60)) / 60
+        let seconds = recorder.seconds - (minutes * 60)
+        
+        let strMinutes: String
+        let strSeconds: String
+        
+        if minutes <= 9 {
+            strMinutes = "0\(minutes)"
+        } else {
+            strMinutes = "\(minutes)"
+        }
+        
+        if seconds <= 9 {
+            strSeconds = "0\(seconds)"
+        } else {
+            strSeconds = "\(seconds)"
+        }
+        
+        timeLabel.text              = "\(strMinutes):\(strSeconds)"
+        decibelLabel.text           = "\(decibels)"
         avgBar.avgDecibelLabel.text = "\(avg)"
         avgBar.minDecibelLabel.text = "\(min)"
         avgBar.maxDecibelLabel.text = "\(max)"
+        progress.animate(toAngle: Double(degree * decibels), duration: 0.2, completion: nil)
         
-        setupChart()
+//        print(avg)
     }
     
 }

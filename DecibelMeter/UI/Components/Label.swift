@@ -18,6 +18,7 @@ class Label: UILabel {
         case timeTitle
         case time
         case avgMinMax
+        case tableLabel
     }
     
     init(style: LabelStyle, _ text: String?) {
@@ -46,6 +47,9 @@ class Label: UILabel {
             font = UIFont(name: "OpenSans-Bold", size: 20)
         case .avgMinMax:
             font = UIFont(name: "OpenSans-Bold", size: 15)
+        case .tableLabel:
+            font = UIFont(name: "OpenSans-SemiBold", size: 15)
+            textAlignment = .left
         }
     }
     

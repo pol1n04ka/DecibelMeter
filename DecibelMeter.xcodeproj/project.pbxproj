@@ -16,6 +16,7 @@
 		367CE2C127492D8200AD5010 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367CE2C027492D8200AD5010 /* Collection.swift */; };
 		367CE2C327492FD500AD5010 /* OnboardingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367CE2C227492FD500AD5010 /* OnboardingManager.swift */; };
 		367CE2C527492FF300AD5010 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367CE2C427492FF300AD5010 /* Stack.swift */; };
+		369056972757C7230019184B /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369056962757C7220019184B /* SettingsCell.swift */; };
 		3697E3A52749177E00C5BE5B /* Recorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3697E3A42749177E00C5BE5B /* Recorder.swift */; };
 		3697E3A9274917F500C5BE5B /* SoundLevelDiagram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3697E3A8274917F500C5BE5B /* SoundLevelDiagram.swift */; };
 		3697E3AB2749180500C5BE5B /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3697E3AA2749180500C5BE5B /* Label.swift */; };
@@ -36,6 +37,7 @@
 		36D046312747FA0000EDE28A /* OpenSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 36D0462E2747FA0000EDE28A /* OpenSans-SemiBold.ttf */; };
 		36D046322747FA0000EDE28A /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 36D0462F2747FA0000EDE28A /* OpenSans-Bold.ttf */; };
 		36D145782753F3ED00814A9A /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D145772753F3ED00814A9A /* Player.swift */; };
+		36D1457A2754739400814A9A /* Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D145792754739400814A9A /* Chart.swift */; };
 		36D336AE274C0D0900D0111A /* AvgMinMaxBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D336AD274C0D0900D0111A /* AvgMinMaxBar.swift */; };
 		36D336B0274C334B00D0111A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D336AF274C334B00D0111A /* Constants.swift */; };
 /* End PBXBuildFile section */
@@ -51,6 +53,7 @@
 		367CE2C027492D8200AD5010 /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
 		367CE2C227492FD500AD5010 /* OnboardingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingManager.swift; sourceTree = "<group>"; };
 		367CE2C427492FF300AD5010 /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
+		369056962757C7220019184B /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		3697E3A42749177E00C5BE5B /* Recorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recorder.swift; sourceTree = "<group>"; };
 		3697E3A8274917F500C5BE5B /* SoundLevelDiagram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundLevelDiagram.swift; sourceTree = "<group>"; };
 		3697E3AA2749180500C5BE5B /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
@@ -73,6 +76,7 @@
 		36D0462E2747FA0000EDE28A /* OpenSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiBold.ttf"; sourceTree = "<group>"; };
 		36D0462F2747FA0000EDE28A /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		36D145772753F3ED00814A9A /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		36D145792754739400814A9A /* Chart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chart.swift; sourceTree = "<group>"; };
 		36D336AD274C0D0900D0111A /* AvgMinMaxBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvgMinMaxBar.swift; sourceTree = "<group>"; };
 		36D336AF274C334B00D0111A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4C86C30D4D39DF74D969A667 /* Pods-DecibelMeter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DecibelMeter.debug.xcconfig"; path = "Target Support Files/Pods-DecibelMeter/Pods-DecibelMeter.debug.xcconfig"; sourceTree = "<group>"; };
@@ -132,6 +136,7 @@
 				367CE2C427492FF300AD5010 /* Stack.swift */,
 				362E78792749404B0036CAD5 /* Gradient.swift */,
 				36D336AD274C0D0900D0111A /* AvgMinMaxBar.swift */,
+				36D145792754739400814A9A /* Chart.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -179,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				36D046232747F83000EDE28A /* SettingsView.swift */,
+				369056962757C7220019184B /* SettingsCell.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -404,6 +410,8 @@
 				36D0461A2747F5F100EDE28A /* TabBar.swift in Sources */,
 				36D145782753F3ED00814A9A /* Player.swift in Sources */,
 				3697E3A52749177E00C5BE5B /* Recorder.swift in Sources */,
+				369056972757C7230019184B /* SettingsCell.swift in Sources */,
+				36D1457A2754739400814A9A /* Chart.swift in Sources */,
 				3697E3AB2749180500C5BE5B /* Label.swift in Sources */,
 				367CE2C527492FF300AD5010 /* Stack.swift in Sources */,
 				36D046282747F84200EDE28A /* SavedView.swift in Sources */,
