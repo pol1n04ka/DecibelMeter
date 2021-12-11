@@ -189,12 +189,3 @@ extension Recorder {
     }
     
 }
-
-
-//extension Recorder {
-//    
-//    public func getCurrentTime() -> TimeInterval {
-//        return recorder.currentTime
-//    }
-//    
-//}

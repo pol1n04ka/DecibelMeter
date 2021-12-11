@@ -229,6 +229,8 @@ extension RecordView: AVAudioRecorderDelegate, RecorderDelegate {
     
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         print("Шалость удалась!")
+        
+        Persist().saveAudio(for: nil)
     }
     
     func recorderDidFailToAchievePermission(_ recorder: Recorder) {

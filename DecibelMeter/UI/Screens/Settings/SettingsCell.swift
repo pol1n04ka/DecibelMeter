@@ -44,7 +44,7 @@ class SettingsCell: UITableViewCell {
         self.icon!.translatesAutoresizingMaskIntoConstraints = false
         self.label!.translatesAutoresizingMaskIntoConstraints = false
         
-        var constraints = [
+        let constraints = [
             self.icon!.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
             self.icon!.centerYAnchor.constraint(equalTo: centerYAnchor),
             self.icon!.widthAnchor.constraint(equalToConstant: 20),

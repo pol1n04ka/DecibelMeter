@@ -15,7 +15,7 @@ class Player {
     var player: AVAudioPlayer!
     
     func play() {
-        // Code for play recording
+        
     }
     
 }

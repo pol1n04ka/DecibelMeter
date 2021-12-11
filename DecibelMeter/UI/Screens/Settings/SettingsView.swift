@@ -10,17 +10,7 @@ import UIKit
 
 class SettingsView: UIViewController {
     
-    lazy var titleLabel: UILabel = {
-        let l = UILabel()
-        
-        l.translatesAutoresizingMaskIntoConstraints = false
-        l.text = "Settings"
-        l.textColor = .white
-        l.textAlignment = .center
-        l.font = UIFont(name: "OpenSans-SemiBold", size: 17)
-        
-        return l
-    }()
+    lazy var titleLabel = Label(style: .titleLabel, "Settings")
     
     lazy var tableView: UITableView = {
         let t = UITableView()

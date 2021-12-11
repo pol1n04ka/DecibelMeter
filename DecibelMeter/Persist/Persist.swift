@@ -23,8 +23,15 @@ class Persist {
         if key != nil {
             name = key!
         } else {
-            // Name equals current date
+            let date = Date()
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd.MM.yy, HH:mm"
+            name = dateFormatter.string(from: date as Date)
         }
+        
+        rename("newRecording.m4a", name)
+        
+        print(name)
     }
     
     /// Finds audio from documents directory and returns file for play

@@ -22,6 +22,8 @@
 		3697E3AB2749180500C5BE5B /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3697E3AA2749180500C5BE5B /* Label.swift */; };
 		3697E3AD2749180C00C5BE5B /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3697E3AC2749180C00C5BE5B /* Button.swift */; };
 		3697E3AF2749187400C5BE5B /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3697E3AE2749187400C5BE5B /* Image.swift */; };
+		369962492763B54300AD0CDE /* SavedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369962482763B54300AD0CDE /* SavedCell.swift */; };
+		3699624B2764F54400AD0CDE /* PreRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3699624A2764F54400AD0CDE /* PreRecord.swift */; };
 		36CCE92B2747E40600997592 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CCE92A2747E40600997592 /* AppDelegate.swift */; };
 		36CCE9352747E40600997592 /* DecibelMeter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 36CCE9332747E40600997592 /* DecibelMeter.xcdatamodeld */; };
 		36CCE9372747E40800997592 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36CCE9362747E40800997592 /* Assets.xcassets */; };
@@ -59,6 +61,8 @@
 		3697E3AA2749180500C5BE5B /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		3697E3AC2749180C00C5BE5B /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		3697E3AE2749187400C5BE5B /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		369962482763B54300AD0CDE /* SavedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCell.swift; sourceTree = "<group>"; };
+		3699624A2764F54400AD0CDE /* PreRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreRecord.swift; sourceTree = "<group>"; };
 		36CCE9272747E40600997592 /* DecibelMeter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DecibelMeter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36CCE92A2747E40600997592 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36CCE9342747E40600997592 /* DecibelMeter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DecibelMeter.xcdatamodel; sourceTree = "<group>"; };
@@ -166,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				36D046272747F84100EDE28A /* SavedView.swift */,
+				369962482763B54300AD0CDE /* SavedCell.swift */,
 			);
 			path = Saved;
 			sourceTree = "<group>";
@@ -252,6 +257,7 @@
 		36D0461C2747F60E00EDE28A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3699624A2764F54400AD0CDE /* PreRecord.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -407,6 +413,7 @@
 				3697E3AF2749187400C5BE5B /* Image.swift in Sources */,
 				36CCE9352747E40600997592 /* DecibelMeter.xcdatamodeld in Sources */,
 				3697E3AD2749180C00C5BE5B /* Button.swift in Sources */,
+				369962492763B54300AD0CDE /* SavedCell.swift in Sources */,
 				36D0461A2747F5F100EDE28A /* TabBar.swift in Sources */,
 				36D145782753F3ED00814A9A /* Player.swift in Sources */,
 				3697E3A52749177E00C5BE5B /* Recorder.swift in Sources */,
@@ -417,6 +424,7 @@
 				36D046282747F84200EDE28A /* SavedView.swift in Sources */,
 				362E787A2749404B0036CAD5 /* Gradient.swift in Sources */,
 				36D336B0274C334B00D0111A /* Constants.swift in Sources */,
+				3699624B2764F54400AD0CDE /* PreRecord.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

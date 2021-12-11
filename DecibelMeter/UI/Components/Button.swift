@@ -17,6 +17,7 @@ class Button: UIButton {
         case link
         case record
         case close
+        case playOrPause
     }
     
     init(style: ButtonStyle, _ text: String?) {
@@ -60,6 +61,10 @@ class Button: UIButton {
             setImage(UIImage(named: "Exit"), for: .normal)
             heightAnchor.constraint(equalToConstant: 25).isActive = true
             widthAnchor.constraint(equalToConstant: 25).isActive = true
+        case .playOrPause:
+            setImage(UIImage(named: "Play"), for: .normal)
+            heightAnchor.constraint(equalToConstant: 30).isActive = true
+            widthAnchor.constraint(equalToConstant: 30).isActive = true
         }
     }
     
