@@ -32,9 +32,9 @@ Font weights:
   - [ ] Noise level diagram
   - [X] Record/stop button 
   - [X] Avg/min/max labels
-- [ ] Saved screen
-  - [ ] Table view
-  - [ ] Cell for record
+- [X] Saved screen
+  - [X] Table view
+  - [X] Cell for record
 - [X] Settings screen 
   - [X] Table View
   - [X] Table view cells
