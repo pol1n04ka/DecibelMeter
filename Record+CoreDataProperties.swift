@@ -18,11 +18,10 @@ extension Record {
 
     @NSManaged public var avg: Int16
     @NSManaged public var date: Date?
-    @NSManaged public var id: UUID?
     @NSManaged public var length: String?
     @NSManaged public var max: Int16
     @NSManaged public var min: Int16
     @NSManaged public var name: String?
-    @NSManaged public var url: URL?
+    @NSManaged public var id: UUID?
 
 }

@@ -32,6 +32,9 @@ class SavedCell: UITableViewCell {
     // MARK: Player instance
     private var player: Player!
     
+    public var audioID: UUID!
+    var isPlaying: Bool = false
+    
     public func setValues(
         name: String,
         time: String,
@@ -46,20 +49,18 @@ class SavedCell: UITableViewCell {
         self.avg.text = avg
     }
     
-    @objc private func playOrPauseAudio(_ sender: UIButton) {
-        print(sender.tag)
-    }
-    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .default, reuseIdentifier: reuseIdentifier)
         
         backgroundColor = .clear
         
+        let selectionBackground = UIView()
+        selectionBackground.backgroundColor = .clear
+        selectedBackgroundView = selectionBackground
+        
         stack.distribution = .fill
         timeIcon.frame.size.height = 10
         timeIcon.frame.size.width = 10
-        
-        playButton.addTarget(self, action: #selector(playOrPauseAudio(_:)), for: .touchUpInside)
         
         contentView.addSubview(playButton)
         

@@ -14,6 +14,7 @@ import UIKit
 public protocol RecorderDelegate: NSObject, AVAudioRecorderDelegate {
     func recorderDidFailToAchievePermission(_ recorder: Recorder)
     func recorder(_ recorder: Recorder, didCaptureDecibels decibels: Int)
+    func recorder(_ recorder: Recorder, didFinishRecording info: RecordInfo)
 }
 
 

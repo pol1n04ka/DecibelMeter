@@ -12,12 +12,18 @@ class Button: UIButton {
     
     let gradient = Gradient()
     
+    var uuid: UUID? = nil
+    
     enum ButtonStyle {
         case _continue
         case link
         case record
         case close
         case playOrPause
+    }
+    
+    public func setUUID(_ uuid: UUID) {
+        self.uuid = uuid
     }
     
     init(style: ButtonStyle, _ text: String?) {

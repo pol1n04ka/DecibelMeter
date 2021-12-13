@@ -13,12 +13,12 @@ import AVFAudio
 
 class RecordView: UIViewController {
     
-    let persist = Persist()
-    
     private var isRecording = false
     
-    // MARK: Audio recorder
+    // MARK: Audio recorder & persist
     let recorder = Recorder()
+    let persist  = Persist()
+    var info: RecordInfo!
     
     // MARK: UI elements
     lazy var decibelLabel   = Label(style: .decibelHeading, "0")
@@ -43,12 +43,6 @@ class RecordView: UIViewController {
         recorder.avDelegate = self
         
         setupView()
-        
-        var minutes = (85 - (85 % 60)) / 60
-        var seconds = 85 - (minutes * 60)
-        
-        print(minutes)
-        print(seconds)
         
         if Constants().isRecordingAtLaunchEnabled {
             isRecording = true
@@ -99,6 +93,19 @@ extension RecordView {
     }
     
     private func stopRecordingAudio() {
+//        if recorder.min != nil, recorder.avg != nil, recorder.max != nil {
+//            
+//        }
+//        
+        self.info = RecordInfo(
+            id: UUID(),
+            name: nil,
+            length: timeLabel.text!,
+            avg: UInt8(recorder.avg!),
+            min: UInt8(recorder.min!),
+            max: UInt8(recorder.max!),
+            date: Date()
+        )
         recorder.stopMonitoring()
         recorder.stop()
         progress.animate(toAngle: 0, duration: 0.2, completion: nil)
@@ -107,6 +114,47 @@ extension RecordView {
         avgBar.maxDecibelLabel.text = "0"
         avgBar.minDecibelLabel.text = "0"
         avgBar.avgDecibelLabel.text = "0"
+        
+        let alert = UIAlertController(
+            title: "Recording name",
+            message: nil, preferredStyle: .alert
+        )
+        
+        let cancel = UIAlertAction(
+            title: "Cancel",
+            style: .cancel,
+            handler: nil
+        )
+        
+        let save = UIAlertAction(
+            title: "Save",
+            style: .default,
+            handler: { _ in
+                let name = alert.textFields![0].text
+                
+                if name == "" {
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "yyy-M-d-HH:mm"
+                    self.info.name = dateFormatter.string(from: self.info.date as Date)
+                } else {
+                    self.info.name = name
+                }
+                
+                print(self.info)
+                self.persist.saveAudio(info: self.info)
+            }
+        )
+        
+        alert.addTextField { textField in
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyy-M-d-HH:mm"
+            textField.placeholder = "\(dateFormatter.string(from: self.info.date as Date))"
+        }
+        
+        alert.addAction(cancel)
+        alert.addAction(save)
+        
+        present(alert, animated: true, completion: nil)
     }
     
 }
@@ -198,8 +246,6 @@ extension RecordView {
         } else {
             progress.center = CGPoint(x: view.center.x, y: view.center.y / 1.5)
         }
-        
-        print(Constants().screenSize.height)
     }
     
 }
@@ -233,10 +279,14 @@ extension RecordView {
 
 // MARK: Recorder delegate
 extension RecordView: AVAudioRecorderDelegate, RecorderDelegate {
+    func recorder(_ recorder: Recorder, didFinishRecording info: RecordInfo) {
+//        persist.saveAudio(for: nil, info: info)
+    }
+    
     
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         print("Record finished")
-        persist.saveAudio(for: nil)
+//        persist.saveAudio(for: nil)
     }
     
     func recorderDidFailToAchievePermission(_ recorder: Recorder) {
