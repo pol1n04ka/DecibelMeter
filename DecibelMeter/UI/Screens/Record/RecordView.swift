@@ -32,9 +32,16 @@ class RecordView: UIViewController {
     lazy var verticalStack = StackView(axis: .vertical)
     
     lazy var avgBar = AvgMinMaxBar()
+    lazy var containerForSmallDisplay: UIView = {
+        let v = UIView()
+        
+        v.translatesAutoresizingMaskIntoConstraints = false
+        v.backgroundColor = .clear
+        
+        return v
+    }()
     
     lazy var recordButton = Button(style: .record, nil)
-    lazy var playButton = Button(style: .record, nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,9 +101,9 @@ extension RecordView {
     
     private func stopRecordingAudio() {
 //        if recorder.min != nil, recorder.avg != nil, recorder.max != nil {
-//            
+//
 //        }
-//        
+//
         self.info = RecordInfo(
             id: UUID(),
             name: nil,
@@ -167,7 +174,6 @@ extension RecordView {
         view.backgroundColor = UIColor(named: "BackgroundColor")
         
         recordButton.addTarget(self, action: #selector(startOrStopRecord), for: .touchUpInside)
-        playButton.addTarget(self, action: #selector(play), for: .touchUpInside)
         
         setupCircleView()
         
@@ -181,13 +187,13 @@ extension RecordView {
 //        setupChart()
 //        chart.translatesAutoresizingMaskIntoConstraints = false
         
-//        if Constants().isBig {
-//            view.addSubview(avgBar)
-//        }
-        
-        view.addSubview(avgBar)
-        
-        view.addSubview(playButton)
+        if Constants().isBig {
+            view.addSubview(avgBar)
+        } else {
+            view.addSubview(containerForSmallDisplay)
+            containerForSmallDisplay.addSubview(avgBar)
+        }
+    
         view.addSubview(recordButton)
         
         verticalStack.setCustomSpacing(10, after: decibelLabel)
@@ -201,9 +207,6 @@ extension RecordView {
             avgBar.topAnchor.constraint(equalTo: progress.bottomAnchor, constant: 5),
             avgBar.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            playButton.bottomAnchor.constraint(equalTo: recordButton.topAnchor, constant: -10),
-            playButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            
             recordButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30),
             recordButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ]
@@ -212,10 +215,13 @@ extension RecordView {
             verticalStack.centerYAnchor.constraint(equalTo: progress.centerYAnchor),
             verticalStack.centerXAnchor.constraint(equalTo: progress.centerXAnchor),
             
-//            chart.topAnchor.constraint(equalTo: progress.bottomAnchor, constant: 10),
-//            chart.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-//            chart.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-//            chart.bottomAnchor.constraint(equalTo: recordButton.topAnchor, constant: -10),
+            containerForSmallDisplay.topAnchor.constraint(equalTo: progress.bottomAnchor),
+            containerForSmallDisplay.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            containerForSmallDisplay.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            containerForSmallDisplay.bottomAnchor.constraint(equalTo: recordButton.topAnchor),
+            
+            avgBar.centerXAnchor.constraint(equalTo: containerForSmallDisplay.centerXAnchor),
+            avgBar.centerYAnchor.constraint(equalTo: containerForSmallDisplay.centerYAnchor, constant: -40),
             
             recordButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30),
             recordButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
@@ -227,7 +233,7 @@ extension RecordView {
             constraints = constraintsForSmallDisplay
         }
         
-        NSLayoutConstraint.activate(constraintsForBigDisplay)
+        NSLayoutConstraint.activate(constraints)
     }
     
     // MARK: Setup circle view

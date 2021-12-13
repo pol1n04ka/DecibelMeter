@@ -13,9 +13,12 @@ Font weights:
 - [X] Sound recording
 - [X] Converting aplitude to decibel
 - [X] Core data model for sound recordings
-- [ ] Saving audio
-  - [ ] Information to core data 
-  - [ ] Audio data to storage
+- [X] Saving audio
+  - [X] Information to core data 
+  - [X] Audio data to storage
+- [X] Loading audio
+- [X] Playing audio
+- [X] Deleting audio
 
 ### UI 
 - [X] Export assets from figma 
