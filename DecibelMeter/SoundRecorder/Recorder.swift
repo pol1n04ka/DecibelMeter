@@ -50,7 +50,7 @@ public class Recorder {
     }
     
     // MARK: Session and recorder
-    private var session:  AVAudioSession!
+    public var session:  AVAudioSession!
     private var recorder: AVAudioRecorder!
     
     // MARK: Delegates
@@ -92,7 +92,7 @@ extension Recorder {
         ]
         
         do {
-            recorder = try AVAudioRecorder(url: audioFilename, settings: settings)
+            recorder = try AVAudioRecorder(url: audioFilename, settings: settings as [String : Any])
             recorder.delegate = self.avDelegate
             recorder.isMeteringEnabled = true
             recorder.prepareToRecord()
@@ -138,8 +138,10 @@ extension Recorder {
     
     /// Stop recorder
     public func stop() {
+        print(recorder.url)
         recorder.stop()
         recorder = nil
+        session = nil
         
         decibelsForMath = []
         decibels = []

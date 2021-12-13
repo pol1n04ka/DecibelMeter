@@ -5,12 +5,6 @@
 //  Created by Polina Prokopenko on 11/19/21.
 //
 
-/*
-
- 1. 
- 
-*/
-
 import UIKit
 import KDCircularProgress
 import SwiftCharts
@@ -18,6 +12,8 @@ import AVFAudio
 
 
 class RecordView: UIViewController {
+    
+    let persist = Persist()
     
     private var isRecording = false
     
@@ -38,6 +34,7 @@ class RecordView: UIViewController {
     lazy var avgBar = AvgMinMaxBar()
     
     lazy var recordButton = Button(style: .record, nil)
+    lazy var playButton = Button(style: .record, nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,6 +71,11 @@ class RecordView: UIViewController {
 
 // MARK: Record/stop button action
 extension RecordView {
+    
+    // MARK: Plays saved audio. Temporary
+    @objc func play() {
+        persist.play()
+    }
     
     @objc func startOrStopRecord() {
         if isRecording {
@@ -117,6 +119,7 @@ extension RecordView {
         view.backgroundColor = UIColor(named: "BackgroundColor")
         
         recordButton.addTarget(self, action: #selector(startOrStopRecord), for: .touchUpInside)
+        playButton.addTarget(self, action: #selector(play), for: .touchUpInside)
         
         setupCircleView()
         
@@ -136,6 +139,7 @@ extension RecordView {
         
         view.addSubview(avgBar)
         
+        view.addSubview(playButton)
         view.addSubview(recordButton)
         
         verticalStack.setCustomSpacing(10, after: decibelLabel)
@@ -148,6 +152,9 @@ extension RecordView {
             
             avgBar.topAnchor.constraint(equalTo: progress.bottomAnchor, constant: 5),
             avgBar.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            
+            playButton.bottomAnchor.constraint(equalTo: recordButton.topAnchor, constant: -10),
+            playButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             recordButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30),
             recordButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
@@ -228,9 +235,8 @@ extension RecordView {
 extension RecordView: AVAudioRecorderDelegate, RecorderDelegate {
     
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
-        print("Шалость удалась!")
-        
-        Persist().saveAudio(for: nil)
+        print("Record finished")
+        persist.saveAudio(for: nil)
     }
     
     func recorderDidFailToAchievePermission(_ recorder: Recorder) {
@@ -293,8 +299,6 @@ extension RecordView: AVAudioRecorderDelegate, RecorderDelegate {
         avgBar.minDecibelLabel.text = "\(min)"
         avgBar.maxDecibelLabel.text = "\(max)"
         progress.animate(toAngle: Double(degree * decibels), duration: 0.2, completion: nil)
-        
-//        print(avg)
     }
     
 }

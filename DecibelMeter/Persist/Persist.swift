@@ -11,6 +11,9 @@ import CoreData
 
 class Persist {
     
+    let player = Player()
+    var path: URL!
+    
     /// Save audio into device storage and Core Data
     /// - Parameter key: Name of file. If it's nil, replaces with current date
     func saveAudio(for key: String?) {
@@ -25,13 +28,27 @@ class Persist {
         } else {
             let date = Date()
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "dd.MM.yy, HH:mm"
+            dateFormatter.dateFormat = "yyy-M-d-HH:mm"
             name = dateFormatter.string(from: date as Date)
         }
         
-        rename("newRecording.m4a", name)
+        rename("newRecording", name)
         
-        print(name)
+        guard let path = filePath(for: name) else {
+            print("Error")
+            return
+        }
+        
+        self.path = path
+        
+        print(path)
+    }
+    
+    
+    func play() {
+        if path != nil {
+            player.play(path)
+        }
     }
     
     /// Finds audio from documents directory and returns file for play
@@ -48,15 +65,23 @@ class Persist {
     func rename(_ initialName: String, _ resultName: String) {
         let fileManager = FileManager.default
         guard let documentURL = fileManager.urls(for: .documentDirectory, in: FileManager.SearchPathDomainMask.userDomainMask).first else { return }
-        
+
         guard let path = filePath(for: initialName) else { return }
-        
+        guard let resultPath = filePath(for: resultName) else { return }
+
         do {
-            try fileManager.moveItem(at: path, to: documentURL.appendingPathComponent(resultName + ".m4a"))
+            try fileManager.moveItem(at: path, to: resultPath)
         } catch {
             print("[FAIL] File don't renamed: ")
             print(error)
         }
+        
+//        guard var path = filePath(for: initialName) else { return }
+//        path.setTemporaryResourceValue("\(resultName).m4a", forKey: .nameKey)
+//
+//        if var path = filePath(for: initialName) {
+//            path.setTemporaryResourceValue("\(resultName).m4a", forKey: .nameKey)
+//        }
     }
     
     /// Finding file path for audio
