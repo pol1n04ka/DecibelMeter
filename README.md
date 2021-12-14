@@ -45,7 +45,7 @@ Font weights:
 - [X] Onboarding
   - [X] Constructor
   - [X] Onboarding manager
-- [ ] Subscribe screens
-  - [ ] Constructor
+- [X] Subscribe screens
+  - [X] Constructor
 - [ ] Export icons from sketch
 
