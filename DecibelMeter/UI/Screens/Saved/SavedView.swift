@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFAudio
 
 
 class SavedView: UIViewController {
@@ -14,6 +15,8 @@ class SavedView: UIViewController {
     var recordings: [Record]?
     var player: Player!
     var isPlaying: Bool = false
+    var tagPlaying: Int?
+    var tags: [Int] = []
     
     lazy var titleLabel = Label(style: .titleLabel, "Saved")
     
@@ -34,6 +37,8 @@ class SavedView: UIViewController {
         setupView()
         
         tableView.delaysContentTouches = false
+        
+        buttonToogler()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -41,28 +46,79 @@ class SavedView: UIViewController {
         
         guard let result = persist.fetch() else { return }
         recordings = result
-        print(recordings)
         
         tableView.reloadData()
+        
+        buttonToogler()
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
     
+    // FIXME: NEED REFACTORING
+    func buttonToogler() {
+        for tag in tags {
+            let tmp = self.tableView.cellForRow(at: [0, tag]) as! SavedCell
+            
+            if tmp.isPlaying {
+                if let tagPlaying = tagPlaying {
+                    if tmp.tag == 0 {
+                        if tmp.isPlaying {
+                            print("wrong")
+                            tmp.isPlaying = false
+                            tmp.playButton.setImage(UIImage(named: "Play"), for: .normal)
+                            if player.player.isPlaying {
+                                player.player.stop()
+                            }
+                        } else {
+                            print("true")
+                            tmp.isPlaying = true
+                            tmp.playButton.setImage(UIImage(named: "Pause"), for: .normal)
+                        }
+                    } else if tmp.tag == tagPlaying {
+                        print("true")
+                        tmp.isPlaying = true
+                        tmp.playButton.setImage(UIImage(named: "Pause"), for: .normal)
+                    } else {
+                        print("wrong")
+                        tmp.isPlaying = false
+                        tmp.playButton.setImage(UIImage(named: "Play"), for: .normal)
+                        if player.player.isPlaying {
+                            player.player.stop()
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
     @objc func playOrPauseAudio(_ sender: UIButton) {
+        let cell = tableView.cellForRow(at: [0, sender.tag]) as? SavedCell
+        
+        if sender.tag == 0 {
+//            cell?.isPlaying = false
+            tagPlaying = 0
+        }
+        
+        buttonToogler()
+        
         if isPlaying == false {
             let button = sender as! Button
             guard let path = Persist().filePath(for: button.uuid!.uuidString) else { return }
             isPlaying = true
-            sender.imageView?.image = UIImage(named: "Pause")
+            cell?.isPlaying = true
+            sender.setImage(UIImage(named: "Pause"), for: .normal)
+            self.tagPlaying = sender.tag
             player = Player()
-            player.play(path)
+            player.play(path, delegate: self)
         } else {
             isPlaying = false
-            sender.imageView?.image = UIImage(named: "Play")
+            cell?.isPlaying = true
+            sender.setImage(UIImage(named: "Play"), for: .normal) 
             player.player.stop()
             player.session = nil
+            self.tagPlaying = nil
         }
     }
     
@@ -99,6 +155,7 @@ extension SavedView: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if self.recordings != nil {
+            self.tags = Array(0..<recordings!.count)
             return recordings!.count
         } else {
             return 0
@@ -114,9 +171,9 @@ extension SavedView: UITableViewDataSource, UITableViewDelegate {
             cell.setValues(
                 name: recording.name ?? "",
                 time: recording.length ?? "",
-                min: String(recording.min),
-                max: String(recording.max),
-                avg: String(recording.avg)
+                min: "MIN " + String(recording.min),
+                max: "MAX " + String(recording.max),
+                avg: "AVG " + String(recording.avg)
             )
             
             cell.audioID = recording.id
@@ -163,8 +220,12 @@ extension SavedView {
     func share(indexPath: IndexPath) {
         guard let recordings = recordings else { return }
         let recording = recordings[indexPath.row]
-        let path = persist.filePath(for: recording.id!.uuidString)
-        let activityVC = UIActivityViewController(activityItems: [path], applicationActivities: nil)
+        guard let path = persist.filePath(for: recording.id!.uuidString) else { return }
+        
+        let activityVC = UIActivityViewController(
+            activityItems: [path],
+            applicationActivities: nil
+        )
         
         present(activityVC, animated: true, completion: nil)
     }
@@ -179,4 +240,19 @@ extension SavedView {
             print(error)
         }
     }
+    
+}
+
+
+extension SavedView: AVAudioPlayerDelegate {
+    
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        if flag {
+            print("Good")
+            buttonToogler()
+        } else {
+            print("Not good")
+        }
+    }
+    
 }

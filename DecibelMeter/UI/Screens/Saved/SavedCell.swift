@@ -13,6 +13,10 @@ class SavedCell: UITableViewCell {
     // MARK: UI elements
     lazy var playButton = Button(style: .playOrPause, nil)
     
+    var buttonTag: UUID? {
+        return playButton.uuid
+    }
+    
     private lazy var stack = StackView(axis: .vertical)
     
     private lazy var topStack = StackView(axis: .horizontal)

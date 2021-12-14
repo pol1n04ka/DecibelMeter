@@ -30,14 +30,14 @@ public class Persist {
 
         rename("newRecording", info.id.uuidString)
         
-        guard let path = filePath(for: info.id.uuidString) else {
-            print("Error")
-            return
-        }
-        
-        self.path = path
-        
-        print(path)
+//        guard let path = filePath(for: info.id.uuidString) else {
+//            print("Error")
+//            return
+//        }
+//        
+//        self.path = path
+//        
+//        print(path)
         
         let newRecording = Record(context: context)
         newRecording.id     = info.id
@@ -52,13 +52,6 @@ public class Persist {
             try context.save()
         } catch {
             print(error)
-        }
-    }
-    
-    
-    func play() {
-        if path != nil {
-            player.play(path)
         }
     }
     

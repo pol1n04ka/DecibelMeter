@@ -87,7 +87,7 @@ extension Recorder {
         
         let settings = [
             AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
-            AVSampleRateKey: 12000,
+            AVSampleRateKey: 24000,
             AVNumberOfChannelsKey: 1,
             AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
         ]
@@ -112,6 +112,7 @@ extension Recorder {
         switch AVAudioSession.sharedInstance().recordPermission {
         case .granted:
             startRecording()
+            startMonitoring()
         case .undetermined:
             requestPermissions()
         case .denied:
@@ -125,6 +126,7 @@ extension Recorder {
         AVAudioSession.sharedInstance().requestRecordPermission { granted in
             if granted {
                 self.startRecording()
+                self.startMonitoring()
             } else {
                 self.checkPermissionAndStartRecording()
             }

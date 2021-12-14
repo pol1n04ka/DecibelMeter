@@ -15,14 +15,13 @@ class Player: NSObject {
     var session: AVAudioSession!
     var player: AVAudioPlayer!
     
-    func play(_ filename: URL) {
+    func play(_ filename: URL, delegate: AVAudioPlayerDelegate) {
         session = AVAudioSession.sharedInstance()
         
         do {
             try session.setCategory(.ambient, mode: .default)
             try session.setActive(true)
         } catch {
-            // failed to start recording
             print(error)
         }
         
@@ -30,7 +29,8 @@ class Player: NSObject {
             player = try AVAudioPlayer(contentsOf: filename)
             player.prepareToPlay()
             player.volume = 1.0
-            player.delegate = self
+//            player.delegate = self
+            player.delegate = delegate
             player.play()
             print("play")
         } catch {
@@ -41,10 +41,10 @@ class Player: NSObject {
 }
 
 
-extension Player: AVAudioPlayerDelegate {
-    
-    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
-        print("Good!")
-    }
-    
-}
+//extension Player: AVAudioPlayerDelegate {
+//    
+//    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+//        print("Good!")
+//    }
+//    
+//}

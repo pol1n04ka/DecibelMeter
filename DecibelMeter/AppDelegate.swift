@@ -17,14 +17,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         
-        
-//        window?.rootViewController = OnboardingView()
+        window?.rootViewController = OnboardingView()
         if OnboardingManager.shared.isFirstLaunch {
             window?.rootViewController = OnboardingView()
         } else {
             window?.rootViewController = TabBar()
         }
-        
         
         window?.makeKeyAndVisible()
         

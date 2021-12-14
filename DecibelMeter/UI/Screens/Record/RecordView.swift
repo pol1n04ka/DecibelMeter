@@ -55,6 +55,15 @@ class RecordView: UIViewController {
             isRecording = true
             startRecordingAudio()
         }
+        
+        requestPermissions()
+    }
+    
+    private func requestPermissions() {
+        if !Constants().isFirstLaunch {
+            AVAudioSession.sharedInstance().requestRecordPermission { granted in }
+            Constants().isFirstLaunch = true
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -73,18 +82,15 @@ class RecordView: UIViewController {
 // MARK: Record/stop button action
 extension RecordView {
     
-    // MARK: Plays saved audio. Temporary
-    @objc func play() {
-        persist.play()
-    }
-    
     @objc func startOrStopRecord() {
         if isRecording {
             isRecording = false
             stopRecordingAudio()
+            recordButton.setImage(UIImage(named: "Microphone"), for: .normal)
         } else {
             isRecording = true
             startRecordingAudio()
+            recordButton.setImage(UIImage(named: "Stop"), for: .normal)
         }
     }
     
@@ -100,70 +106,67 @@ extension RecordView {
     }
     
     private func stopRecordingAudio() {
-//        if recorder.min != nil, recorder.avg != nil, recorder.max != nil {
-//
-//        }
-//
-        self.info = RecordInfo(
-            id: UUID(),
-            name: nil,
-            length: timeLabel.text!,
-            avg: UInt8(recorder.avg!),
-            min: UInt8(recorder.min!),
-            max: UInt8(recorder.max!),
-            date: Date()
-        )
-        recorder.stopMonitoring()
-        recorder.stop()
-        progress.animate(toAngle: 0, duration: 0.2, completion: nil)
-        decibelLabel.text = "0"
-        timeLabel.text = "00:00"
-        avgBar.maxDecibelLabel.text = "0"
-        avgBar.minDecibelLabel.text = "0"
-        avgBar.avgDecibelLabel.text = "0"
-        
-        let alert = UIAlertController(
-            title: "Recording name",
-            message: nil, preferredStyle: .alert
-        )
-        
-        let cancel = UIAlertAction(
-            title: "Cancel",
-            style: .cancel,
-            handler: nil
-        )
-        
-        let save = UIAlertAction(
-            title: "Save",
-            style: .default,
-            handler: { _ in
-                let name = alert.textFields![0].text
-                
-                if name == "" {
-                    let dateFormatter = DateFormatter()
-                    dateFormatter.dateFormat = "yyy-M-d-HH:mm"
-                    self.info.name = dateFormatter.string(from: self.info.date as Date)
-                } else {
-                    self.info.name = name
+        if recorder.min != nil, recorder.avg != nil, recorder.max != nil {
+            self.info = RecordInfo(
+                id: UUID(),
+                name: nil,
+                length: timeLabel.text!,
+                avg: UInt8(recorder.avg!),
+                min: UInt8(recorder.min!),
+                max: UInt8(recorder.max!),
+                date: Date()
+            )
+            
+            recorder.stopMonitoring()
+            recorder.stop()
+            progress.animate(toAngle: 0, duration: 0.2, completion: nil)
+            decibelLabel.text = "0"
+            timeLabel.text = "00:00"
+            avgBar.maxDecibelLabel.text = "0"
+            avgBar.minDecibelLabel.text = "0"
+            avgBar.avgDecibelLabel.text = "0"
+            
+            let alert = UIAlertController(
+                title: "Recording name",
+                message: nil, preferredStyle: .alert
+            )
+            
+            let cancel = UIAlertAction(
+                title: "Cancel",
+                style: .cancel,
+                handler: nil
+            )
+            
+            let save = UIAlertAction(
+                title: "Save",
+                style: .default,
+                handler: { _ in
+                    let name = alert.textFields![0].text
+                    
+                    if name == "" {
+                        let dateFormatter = DateFormatter()
+                        dateFormatter.dateFormat = "yyy-M-d-HH:mm"
+                        self.info.name = dateFormatter.string(from: self.info.date as Date)
+                    } else {
+                        self.info.name = name
+                    }
+                    
+                    self.persist.saveAudio(info: self.info)
                 }
-                
-                print(self.info)
-                self.persist.saveAudio(info: self.info)
+            )
+            
+            alert.addTextField { textField in
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyy-M-d-HH:mm"
+                textField.placeholder = "\(dateFormatter.string(from: self.info.date as Date))"
             }
-        )
-        
-        alert.addTextField { textField in
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyy-M-d-HH:mm"
-            textField.placeholder = "\(dateFormatter.string(from: self.info.date as Date))"
+            
+            alert.addAction(cancel)
+            alert.addAction(save)
+            
+            present(alert, animated: true, completion: nil)
         }
-        
-        alert.addAction(cancel)
-        alert.addAction(save)
-        
-        present(alert, animated: true, completion: nil)
-    }
-    
+        }
 }
 
 
@@ -188,7 +191,8 @@ extension RecordView {
 //        chart.translatesAutoresizingMaskIntoConstraints = false
         
         if Constants().isBig {
-            view.addSubview(avgBar)
+            view.addSubview(containerForSmallDisplay)
+            containerForSmallDisplay.addSubview(avgBar)
         } else {
             view.addSubview(containerForSmallDisplay)
             containerForSmallDisplay.addSubview(avgBar)
@@ -227,11 +231,12 @@ extension RecordView {
             recordButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ]
         
-        if Constants().isBig {
-            constraints = constraintsForBigDisplay
-        } else {
-            constraints = constraintsForSmallDisplay
-        }
+//        if Constants().isBig {
+//            constraints = constraintsForBigDisplay
+//        } else {
+//            constraints = constraintsForSmallDisplay
+//        }
+        constraints = constraintsForSmallDisplay
         
         NSLayoutConstraint.activate(constraints)
     }
@@ -244,13 +249,17 @@ extension RecordView {
         progress.clockwise = true
         progress.roundedCorners = true
         progress.glowMode = .noGlow
-        
+        progress.trackColor = UIColor(named: "BackgroundColorTabBar")!
         progress.set(colors: UIColor(named: "ColorCircleThree")!, UIColor(named: "ColorCircleTwo")!, UIColor(named: "ColorCircleOne")!)
         
         if Constants().screenSize.height <= 667 {
             progress.center = CGPoint(x: view.center.x, y: view.center.y / 1.9)
         } else {
             progress.center = CGPoint(x: view.center.x, y: view.center.y / 1.5)
+        }
+        
+        if Constants().isBig {
+            progress.center = CGPoint(x: view.center.x, y: view.center.y / 1.6)
         }
     }
     
