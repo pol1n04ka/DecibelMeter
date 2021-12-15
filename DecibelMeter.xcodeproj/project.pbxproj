@@ -39,7 +39,6 @@
 		36D046312747FA0000EDE28A /* OpenSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 36D0462E2747FA0000EDE28A /* OpenSans-SemiBold.ttf */; };
 		36D046322747FA0000EDE28A /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 36D0462F2747FA0000EDE28A /* OpenSans-Bold.ttf */; };
 		36D145782753F3ED00814A9A /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D145772753F3ED00814A9A /* Player.swift */; };
-		36D1457A2754739400814A9A /* Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D145792754739400814A9A /* Chart.swift */; };
 		36D336AE274C0D0900D0111A /* AvgMinMaxBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D336AD274C0D0900D0111A /* AvgMinMaxBar.swift */; };
 		36D336B0274C334B00D0111A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D336AF274C334B00D0111A /* Constants.swift */; };
 		36E4562527675DD600473491 /* Record+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E4562327675DD600473491 /* Record+CoreDataClass.swift */; };
@@ -82,7 +81,6 @@
 		36D0462E2747FA0000EDE28A /* OpenSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiBold.ttf"; sourceTree = "<group>"; };
 		36D0462F2747FA0000EDE28A /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		36D145772753F3ED00814A9A /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
-		36D145792754739400814A9A /* Chart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chart.swift; sourceTree = "<group>"; };
 		36D336AD274C0D0900D0111A /* AvgMinMaxBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvgMinMaxBar.swift; sourceTree = "<group>"; };
 		36D336AF274C334B00D0111A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		36E4562327675DD600473491 /* Record+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Record+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
@@ -144,7 +142,6 @@
 				367CE2C427492FF300AD5010 /* Stack.swift */,
 				362E78792749404B0036CAD5 /* Gradient.swift */,
 				36D336AD274C0D0900D0111A /* AvgMinMaxBar.swift */,
-				36D145792754739400814A9A /* Chart.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -425,7 +422,6 @@
 				36D145782753F3ED00814A9A /* Player.swift in Sources */,
 				3697E3A52749177E00C5BE5B /* Recorder.swift in Sources */,
 				369056972757C7230019184B /* SettingsCell.swift in Sources */,
-				36D1457A2754739400814A9A /* Chart.swift in Sources */,
 				3697E3AB2749180500C5BE5B /* Label.swift in Sources */,
 				36E4562627675DD600473491 /* Record+CoreDataProperties.swift in Sources */,
 				367CE2C527492FF300AD5010 /* Stack.swift in Sources */,

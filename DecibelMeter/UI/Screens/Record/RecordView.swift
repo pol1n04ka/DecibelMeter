@@ -6,9 +6,9 @@
 //
 
 import UIKit
-import KDCircularProgress
-import SwiftCharts
 import AVFAudio
+import KDCircularProgress
+import Charts
 
 
 class RecordView: UIViewController {
@@ -36,10 +36,11 @@ class RecordView: UIViewController {
         let v = UIView()
         
         v.translatesAutoresizingMaskIntoConstraints = false
-        v.backgroundColor = .clear
         
         return v
     }()
+    
+    var chart: BarChartView!
     
     lazy var recordButton = Button(style: .record, nil)
     
@@ -119,6 +120,7 @@ extension RecordView {
             
             recorder.stopMonitoring()
             recorder.stop()
+            updateChartData()
             progress.animate(toAngle: 0, duration: 0.2, completion: nil)
             decibelLabel.text = "0"
             timeLabel.text = "00:00"
@@ -186,13 +188,9 @@ extension RecordView {
         verticalStack.addArrangedSubview(timeLabel)
         verticalStack.addArrangedSubview(timeTitleLabel)
         
-//        view.addSubview(chart)
-//        setupChart()
-//        chart.translatesAutoresizingMaskIntoConstraints = false
-        
         if Constants().isBig {
-            view.addSubview(containerForSmallDisplay)
-            containerForSmallDisplay.addSubview(avgBar)
+            view.addSubview(avgBar)
+            setupChart()
         } else {
             view.addSubview(containerForSmallDisplay)
             containerForSmallDisplay.addSubview(avgBar)
@@ -211,6 +209,11 @@ extension RecordView {
             avgBar.topAnchor.constraint(equalTo: progress.bottomAnchor, constant: 5),
             avgBar.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
+            chart.topAnchor.constraint(equalTo: avgBar.bottomAnchor, constant: 30),
+            chart.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
+            chart.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            chart.bottomAnchor.constraint(equalTo: recordButton.topAnchor, constant: -30),
+            
             recordButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30),
             recordButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ]
@@ -219,7 +222,7 @@ extension RecordView {
             verticalStack.centerYAnchor.constraint(equalTo: progress.centerYAnchor),
             verticalStack.centerXAnchor.constraint(equalTo: progress.centerXAnchor),
             
-            containerForSmallDisplay.topAnchor.constraint(equalTo: progress.bottomAnchor),
+            containerForSmallDisplay.topAnchor.constraint(equalTo: avgBar.bottomAnchor),
             containerForSmallDisplay.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             containerForSmallDisplay.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             containerForSmallDisplay.bottomAnchor.constraint(equalTo: recordButton.topAnchor),
@@ -231,12 +234,11 @@ extension RecordView {
             recordButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ]
         
-//        if Constants().isBig {
-//            constraints = constraintsForBigDisplay
-//        } else {
-//            constraints = constraintsForSmallDisplay
-//        }
-        constraints = constraintsForSmallDisplay
+        if Constants().isBig {
+            constraints = constraintsForBigDisplay
+        } else {
+            constraints = constraintsForSmallDisplay
+        }
         
         NSLayoutConstraint.activate(constraints)
     }
@@ -259,37 +261,41 @@ extension RecordView {
         }
         
         if Constants().isBig {
-            progress.center = CGPoint(x: view.center.x, y: view.center.y / 1.6)
+            progress.center = CGPoint(x: view.center.x, y: view.center.y / 1.9)
         }
     }
     
+    // MARK: Setup chart
+    func setupChart() {
+        chart = BarChartView()
+        chart.tintColor = .white
+        chart.noDataTextColor = .white
+        chart.noDataText = "Tap the record button to start monitoring."
+        
+        chart.legend.enabled = false
+        chart.chartDescription?.enabled = false
+        
+        chart.rightAxis.enabled = false
+        
+        chart.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(chart)
+        
+        updateChartData()
+    }
+    
+    func updateChartData() {
+        var entries = [BarChartDataEntry]()
+        for i in 0..<recorder.decibels.count {
+            entries.append(BarChartDataEntry(x: Double(i), y: Double(recorder.decibels[i])))
+        }
+        let set = BarChartDataSet(entries: entries)
+        let data = BarChartData(dataSet: set)
+        chart.data = data
+        
+        chart.barData?.setDrawValues(false)
+    }
+    
 }
-
-
-//// MARK: Setup chart
-//extension RecordView: ChartViewDelegate {
-//
-//    func setupChart() {
-//        chart.doubleTapToZoomEnabled = false
-//        chart.gridBackgroundColor = .white
-//        chart.highlightPerTapEnabled = false
-//        chart.clipDataToContentEnabled = false
-//
-//        var entries = [BarChartDataEntry]()
-//
-//        for x in 0..<recorder.decibels.count {
-//            entries.append(BarChartDataEntry(x: Double(x), y: Double(recorder.decibels[x])))
-//        }
-//
-//        let set = BarChartDataSet(entries: entries)
-//        set.colors = ChartColorTemplates.joyful()
-//
-//        let data = BarChartData(dataSet: set)
-//
-//        chart.data = data
-//    }
-//
-//}
 
 
 // MARK: Recorder delegate
@@ -364,6 +370,7 @@ extension RecordView: AVAudioRecorderDelegate, RecorderDelegate {
         avgBar.minDecibelLabel.text = "\(min)"
         avgBar.maxDecibelLabel.text = "\(max)"
         progress.animate(toAngle: Double(degree * decibels), duration: 0.2, completion: nil)
+        updateChartData()
     }
     
 }

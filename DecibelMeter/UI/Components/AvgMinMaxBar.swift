@@ -66,7 +66,7 @@ class AvgMinMaxBar: UIView {
         maxStack.addArrangedSubview(maxLabel)
         
         let constraints = [
-//            mainStack.centerXAnchor.constraint(equalTo: centerXAnchor)
+            heightAnchor.constraint(equalTo: mainStack.heightAnchor),
             mainStack.leadingAnchor.constraint(equalTo: leadingAnchor),
             mainStack.trailingAnchor.constraint(equalTo: trailingAnchor)
         ]

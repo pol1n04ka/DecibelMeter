@@ -147,7 +147,7 @@ extension Recorder {
         session = nil
         
         decibelsForMath = []
-        decibels = []
+        decibels = Array(repeating: 0, count: 60)
     }
     
 }
