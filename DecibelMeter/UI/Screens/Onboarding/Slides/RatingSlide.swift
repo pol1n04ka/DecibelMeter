@@ -16,6 +16,8 @@ class RatingSlide: UICollectionViewCell {
     lazy var heading = Label(style: .heading, "HELP US TO IMPROVE OUR APP")
     lazy var body = Label(style: .body, "We are constantly improving and need your opinion")
     
+    lazy var backgroundImage = ImageView(image: .ratingBack)
+    
     lazy var stackView = StackView(axis: .vertical)
     
     override init(frame: CGRect) {
@@ -36,22 +38,27 @@ extension RatingSlide {
     func setupView() {
         backgroundColor = .clear
         
+        addSubview(backgroundImage)
+        
         addSubview(stackView)
         stackView.addArrangedSubview(image)
         stackView.addArrangedSubview(heading)
         stackView.addArrangedSubview(body)
         
-        stackView.setCustomSpacing(-5, after: image)
+        stackView.setCustomSpacing(60, after: image)
         stackView.setCustomSpacing(10, after: heading)
         
         image.translatesAutoresizingMaskIntoConstraints = false
         heading.translatesAutoresizingMaskIntoConstraints = false
         body.translatesAutoresizingMaskIntoConstraints = false
+        backgroundImage.translatesAutoresizingMaskIntoConstraints = false
         
         let constraints = [
             stackView.centerYAnchor.constraint(equalTo: centerYAnchor),
             stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
+            stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            backgroundImage.topAnchor.constraint(equalTo: stackView.topAnchor, constant: -45),
+            backgroundImage.centerXAnchor.constraint(equalTo: centerXAnchor)
         ]
         
         NSLayoutConstraint.activate(constraints)

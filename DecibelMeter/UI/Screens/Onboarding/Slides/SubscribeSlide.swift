@@ -41,7 +41,7 @@ extension SubscribeSlide {
         stackView.addArrangedSubview(heading)
         stackView.addArrangedSubview(body)
         
-        stackView.setCustomSpacing(-5, after: image)
+        stackView.setCustomSpacing(-10, after: image)
         stackView.setCustomSpacing(10, after: heading)
         
         image.translatesAutoresizingMaskIntoConstraints = false

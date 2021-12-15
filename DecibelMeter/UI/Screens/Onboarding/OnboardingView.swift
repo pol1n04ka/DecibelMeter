@@ -29,7 +29,7 @@ class OnboardingView: UIViewController {
     lazy var continueButton        = Button(style: ._continue, "Continue")
     lazy var termsOfUseButton      = Button(style: .link, "Terms of Use")
     lazy var privacyPolicyButton   = Button(style: .link, "Privacy Policy")
-    lazy var restorePurchaseButton = Button(style: .link, "Restore Purchase")
+    lazy var restorePurchaseButton = Button(style: .link, "Restore")
     
     // Separators
     lazy var separatorOne = UILabel()
@@ -64,12 +64,12 @@ extension OnboardingView {
         view.backgroundColor = UIColor(named: "BackgroundColor")
         
         separatorOne.textAlignment = .center
-        separatorOne.textColor = .white
+        separatorOne.textColor = .black
         separatorOne.text = "|"
         separatorOne.font = UIFont(name: "OpenSans-Regular", size: 13)
         
         separatorTwo.textAlignment = .center
-        separatorTwo.textColor = .white
+        separatorTwo.textColor = .black
         separatorTwo.text = "|"
         separatorTwo.font = UIFont(name: "OpenSans-Regular", size: 13)
         
@@ -96,9 +96,9 @@ extension OnboardingView {
         view.addSubview(stackView)
         stackView.addArrangedSubview(termsOfUseButton)
         stackView.addArrangedSubview(separatorOne)
-        stackView.addArrangedSubview(privacyPolicyButton)
-        stackView.addArrangedSubview(separatorTwo)
         stackView.addArrangedSubview(restorePurchaseButton)
+        stackView.addArrangedSubview(separatorTwo)
+        stackView.addArrangedSubview(privacyPolicyButton)
         
         let constraints = [
             
@@ -119,8 +119,7 @@ extension OnboardingView {
             
             // MARK: Stack view
             stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -15),
-            stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 25),
-            stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -25)
+            stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ]
 
         
@@ -138,7 +137,6 @@ extension OnboardingView {
         guard let optionalWindow = app?.window else { return }
         guard let window = optionalWindow else { return }
         
-//        let vc = NavigationController(rootViewController: MainView())
         window.rootViewController = TabBar()
         
         UIView.transition(with: window, duration: 0.3, options: .transitionCrossDissolve, animations: {}, completion: { completed in

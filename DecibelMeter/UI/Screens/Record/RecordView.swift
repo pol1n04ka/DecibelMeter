@@ -40,7 +40,32 @@ class RecordView: UIViewController {
         return v
     }()
     
-    var chart: BarChartView!
+    lazy var chart: BarChartView = {
+        let chart = BarChartView()
+        chart.noDataTextColor = .white
+        chart.noDataText = "Tap the record button to start monitoring."
+        
+        chart.dragEnabled = false
+        chart.pinchZoomEnabled = false
+        chart.highlightPerTapEnabled = false
+        chart.doubleTapToZoomEnabled = false
+        
+        chart.legend.enabled = false
+        chart.chartDescription?.enabled = false
+        
+        chart.rightAxis.enabled = false
+        chart.leftAxis.labelTextColor = .white
+        
+        chart.xAxis.labelPosition = .bottom
+        chart.xAxis.drawLabelsEnabled = false
+        
+        chart.leftAxis.axisMinimum = 0.0
+        chart.leftAxis.axisMaximum = 100.0
+        
+        chart.translatesAutoresizingMaskIntoConstraints = false
+        
+        return chart
+    }()
     
     lazy var recordButton = Button(style: .record, nil)
     
@@ -190,7 +215,7 @@ extension RecordView {
         
         if Constants().isBig {
             view.addSubview(avgBar)
-            setupChart()
+            view.addSubview(chart)
         } else {
             view.addSubview(containerForSmallDisplay)
             containerForSmallDisplay.addSubview(avgBar)
@@ -222,13 +247,13 @@ extension RecordView {
             verticalStack.centerYAnchor.constraint(equalTo: progress.centerYAnchor),
             verticalStack.centerXAnchor.constraint(equalTo: progress.centerXAnchor),
             
-            containerForSmallDisplay.topAnchor.constraint(equalTo: avgBar.bottomAnchor),
+            containerForSmallDisplay.topAnchor.constraint(equalTo: progress.bottomAnchor),
             containerForSmallDisplay.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             containerForSmallDisplay.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             containerForSmallDisplay.bottomAnchor.constraint(equalTo: recordButton.topAnchor),
             
             avgBar.centerXAnchor.constraint(equalTo: containerForSmallDisplay.centerXAnchor),
-            avgBar.centerYAnchor.constraint(equalTo: containerForSmallDisplay.centerYAnchor, constant: -40),
+            avgBar.centerYAnchor.constraint(equalTo: containerForSmallDisplay.centerYAnchor, constant: -20),
             
             recordButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30),
             recordButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
@@ -263,35 +288,6 @@ extension RecordView {
         if Constants().isBig {
             progress.center = CGPoint(x: view.center.x, y: view.center.y / 1.9)
         }
-    }
-    
-    // MARK: Setup chart
-    func setupChart() {
-        chart = BarChartView()
-        chart.noDataTextColor = .white
-        chart.noDataText = "Tap the record button to start monitoring."
-        
-        chart.dragEnabled = false
-        chart.pinchZoomEnabled = false
-        chart.highlightPerTapEnabled = false
-        chart.doubleTapToZoomEnabled = false
-        
-        chart.legend.enabled = false
-        chart.chartDescription?.enabled = false
-        
-        chart.rightAxis.enabled = false
-        chart.leftAxis.labelTextColor = .white
-        
-        chart.xAxis.labelPosition = .bottom
-        chart.xAxis.drawLabelsEnabled = false
-        
-        chart.leftAxis.axisMinimum = 0.0
-        chart.leftAxis.axisMaximum = 100.0
-        
-        chart.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(chart)
-        
-        updateChartData()
     }
     
     func updateChartData() {

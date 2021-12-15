@@ -23,6 +23,7 @@ class ImageView: UIImageView {
         case documentIcon
         case playIcon
         case shareIcon
+        case ratingBack
     }
     
     init(image: Image) {
@@ -56,6 +57,8 @@ class ImageView: UIImageView {
             self.image = UIImage(named: "Play")
         case .shareIcon:
             self.image = UIImage(named: "Share")
+        case .ratingBack:
+            self.image = UIImage(named: "RatingBack")
         }
     }
     

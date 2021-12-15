@@ -41,7 +41,7 @@ extension MainFunctionalSlide {
         stackView.addArrangedSubview(heading)
         stackView.addArrangedSubview(body)
         
-        stackView.setCustomSpacing(-5, after: image)
+        stackView.setCustomSpacing(25, after: image)
         stackView.setCustomSpacing(10, after: heading)
         
         image.translatesAutoresizingMaskIntoConstraints = false

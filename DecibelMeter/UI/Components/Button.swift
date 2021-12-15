@@ -43,7 +43,7 @@ class Button: UIButton {
             layer.masksToBounds = true
         case .link:
             setTitle(text, for: .normal)
-            setTitleColor(.white, for: .normal)
+            setTitleColor(.gray, for: .normal)
             titleLabel?.font = UIFont(name: "OpenSans-Regular", size: 12)!
         case .record:
             setImage(UIImage(named: "Microphone"), for: .normal)
