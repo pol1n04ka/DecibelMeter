@@ -1,6 +1,13 @@
 # Decibel Meter
 App for recording audio and measure noise level
 
+## Subscribe screen usage
+``` Swift 
+
+SubscribeView(heading: String, body: String)
+
+``` 
+
 ## Design
 Font family: Open Sans
 Font weights: 
@@ -30,9 +37,9 @@ Font weights:
   - [X] Constructor for buttons
   - [X] Constructor for images
 - [X] Tab bar
-- [ ] Record screen 
+- [X] Record screen 
   - [X] Circle noise meter
-  - [ ] Noise level diagram
+  - [X] Noise level diagram
   - [X] Record/stop button 
   - [X] Avg/min/max labels
 - [X] Saved screen
@@ -47,5 +54,5 @@ Font weights:
   - [X] Onboarding manager
 - [X] Subscribe screens
   - [X] Constructor
-- [ ] Export icons from sketch
+- [X] Export icons from sketch
 
