@@ -76,12 +76,12 @@ extension SubscribeView {
         view.backgroundColor = UIColor(named: "BackgroundColor")
         
         separatorOne.textAlignment = .center
-        separatorOne.textColor = .white
+        separatorOne.textColor = .black
         separatorOne.text = "|"
         separatorOne.font = UIFont(name: "OpenSans-Regular", size: 13)
         
         separatorTwo.textAlignment = .center
-        separatorTwo.textColor = .white
+        separatorTwo.textColor = .black
         separatorTwo.text = "|"
         separatorTwo.font = UIFont(name: "OpenSans-Regular", size: 13)
         
@@ -112,9 +112,9 @@ extension SubscribeView {
         view.addSubview(stackView)
         stackView.addArrangedSubview(termsOfUseButton)
         stackView.addArrangedSubview(separatorOne)
-        stackView.addArrangedSubview(privacyPolicyButton)
+        stackView.addArrangedSubview(restorePurchaseButton) 
         stackView.addArrangedSubview(separatorTwo)
-        stackView.addArrangedSubview(restorePurchaseButton)
+        stackView.addArrangedSubview(privacyPolicyButton)
         
         let constraints = [
             
@@ -133,8 +133,9 @@ extension SubscribeView {
             
             // MARK: Stack view
             stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -15),
-            stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 25),
-            stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -25)
+//            stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 25),
+//            stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -25)
+            stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ]
 
         
