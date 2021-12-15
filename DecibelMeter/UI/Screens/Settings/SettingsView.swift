@@ -66,6 +66,7 @@ extension SettingsView {
 }
 
 
+// MARK: Table delegate & datasource
 extension SettingsView: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -128,6 +129,27 @@ extension SettingsView: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case 0:
+            if let url = URL(string: "https://www.google.com") {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+        case 1:
+            if let url = URL(string: "https://www.google.com") {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+        case 2:
+            if let url = URL(string: "https://www.google.com") {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+        case 3:
+            if let url = URL(string: "https://www.google.com") {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+        default:
+            break
+        }
+        
         tableView.deselectRow(at: indexPath, animated: true)
     }
     

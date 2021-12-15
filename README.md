@@ -8,6 +8,10 @@ SubscribeView(heading: String, body: String)
 
 ``` 
 
+## URLs 
+- SettingsView (mark: Table delegate & datasource -> didSelectRow)
+- OnboardingView (mark: Button actions)
+
 ## Design
 Font family: Open Sans
 Font weights: 

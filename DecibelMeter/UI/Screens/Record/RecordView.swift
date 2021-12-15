@@ -304,19 +304,8 @@ extension RecordView {
         chart.data = data
         
         set.colors = [UIColor(named: "Color")!]
-//        data.fill = Fill.fillWithLinearGradient(insertGradient(), angle: 90.0)
         
         chart.barData?.setDrawValues(false)
-    }
-    
-    func insertGradient() -> CGGradient {
-        let topColor = UIColor(named: "ColorCircleOne")!.cgColor
-        let bottomColor = UIColor(named: "ColorCircleThree")!.cgColor
-        
-        let colors = [topColor, bottomColor] as CFArray
-        let locations: [CGFloat] = [0.0, 1.0]
-        
-        return CGGradient(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: colors, locations: locations)!
     }
     
 }
@@ -325,13 +314,13 @@ extension RecordView {
 // MARK: Recorder delegate
 extension RecordView: AVAudioRecorderDelegate, RecorderDelegate {
     func recorder(_ recorder: Recorder, didFinishRecording info: RecordInfo) {
-//        persist.saveAudio(for: nil, info: info)
+        // FIXME: Unusual
     }
     
     
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         print("Record finished")
-//        persist.saveAudio(for: nil)
+        // FIXME: Unusual
     }
     
     func recorderDidFailToAchievePermission(_ recorder: Recorder) {
