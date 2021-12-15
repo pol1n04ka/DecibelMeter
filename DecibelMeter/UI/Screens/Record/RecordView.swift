@@ -268,14 +268,25 @@ extension RecordView {
     // MARK: Setup chart
     func setupChart() {
         chart = BarChartView()
-        chart.tintColor = .white
         chart.noDataTextColor = .white
         chart.noDataText = "Tap the record button to start monitoring."
+        
+        chart.dragEnabled = false
+        chart.pinchZoomEnabled = false
+        chart.highlightPerTapEnabled = false
+        chart.doubleTapToZoomEnabled = false
         
         chart.legend.enabled = false
         chart.chartDescription?.enabled = false
         
         chart.rightAxis.enabled = false
+        chart.leftAxis.labelTextColor = .white
+        
+        chart.xAxis.labelPosition = .bottom
+        chart.xAxis.drawLabelsEnabled = false
+        
+        chart.leftAxis.axisMinimum = 0.0
+        chart.leftAxis.axisMaximum = 100.0
         
         chart.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(chart)
@@ -292,7 +303,20 @@ extension RecordView {
         let data = BarChartData(dataSet: set)
         chart.data = data
         
+        set.colors = [UIColor(named: "Color")!]
+//        data.fill = Fill.fillWithLinearGradient(insertGradient(), angle: 90.0)
+        
         chart.barData?.setDrawValues(false)
+    }
+    
+    func insertGradient() -> CGGradient {
+        let topColor = UIColor(named: "ColorCircleOne")!.cgColor
+        let bottomColor = UIColor(named: "ColorCircleThree")!.cgColor
+        
+        let colors = [topColor, bottomColor] as CFArray
+        let locations: [CGFloat] = [0.0, 1.0]
+        
+        return CGGradient(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: colors, locations: locations)!
     }
     
 }
