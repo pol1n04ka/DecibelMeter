@@ -21,11 +21,13 @@ class CollectionView: UICollectionView {
         super.init(frame: .zero, collectionViewLayout: layout)
         setupLayout()
         
-        self.delegate = delegate
+        self.delegate   = delegate
         self.dataSource = dataSource
+        
         backgroundColor = .clear
-        isPagingEnabled = true
-        showsVerticalScrollIndicator = false
+        
+        isPagingEnabled                = true
+        showsVerticalScrollIndicator   = false
         showsHorizontalScrollIndicator = false
         
         translatesAutoresizingMaskIntoConstraints = false

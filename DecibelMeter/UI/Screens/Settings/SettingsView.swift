@@ -16,11 +16,12 @@ class SettingsView: UIViewController {
         let t = UITableView()
         
         t.translatesAutoresizingMaskIntoConstraints = false
-        t.delegate = self
+        
+        t.delegate   = self
         t.dataSource = self
         
         t.backgroundColor = .clear
-        t.separatorColor = UIColor(named: "SeparatorColor")
+        t.separatorColor  = UIColor(named: "SeparatorColor")
         
         return t
     }()
@@ -122,7 +123,7 @@ extension SettingsView: UITableViewDataSource, UITableViewDelegate {
                 isUsingSwitch: true
             )
         default:
-            cell
+            break
         }
         
         return cell

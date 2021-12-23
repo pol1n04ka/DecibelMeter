@@ -27,8 +27,8 @@ class Label: UILabel {
     init(style: LabelStyle, _ text: String?) {
         super.init(frame: .zero)
         
-        self.text = text
-        textColor = .white
+        self.text     = text
+        textColor     = .white
         numberOfLines = 0
         textAlignment = .center
         

@@ -12,9 +12,9 @@ class SubscribeSlide: UICollectionViewCell {
     
     public static let identifier = "SubscribeSlide"
     
-    lazy var image = ImageView(image: .human)
+    lazy var image   = ImageView(image: .human)
     lazy var heading = Label(style: .heading, "YOUR HEALTH IS ABOVE ALL!")
-    lazy var body = Label(style: .body, "Subscribe to unlock all the features, just $3.99/week")
+    lazy var body    = Label(style: .body, "Subscribe to unlock all the features, just $3.99/week")
     
     lazy var stackView = StackView(axis: .vertical)
     

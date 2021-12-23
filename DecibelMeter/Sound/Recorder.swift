@@ -144,10 +144,10 @@ extension Recorder {
         print(recorder.url)
         recorder.stop()
         recorder = nil
-        session = nil
+        session  = nil
         
         decibelsForMath = []
-        decibels = Array(repeating: 0, count: 60)
+        decibels        = Array(repeating: 0, count: 60)
     }
     
 }

@@ -12,9 +12,9 @@ class MainFunctionalSlide: UICollectionViewCell {
     
     public static let identifier = "MainFunctional"
     
-    lazy var image = ImageView(image: .soundMeter)
+    lazy var image   = ImageView(image: .soundMeter)
     lazy var heading = Label(style: .heading, "MEASURE THE SOUND LEVEL")
-    lazy var body = Label(style: .body, "Determine exactly the noise level in decibels, take care of your health and the health of others")
+    lazy var body    = Label(style: .body, "Determine exactly the noise level in decibels, take care of your health and the health of others")
     
     lazy var stackView = StackView(axis: .vertical)
     

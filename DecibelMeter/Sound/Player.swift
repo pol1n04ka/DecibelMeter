@@ -13,7 +13,7 @@ import UIKit
 class Player: NSObject {
     
     var session: AVAudioSession!
-    var player: AVAudioPlayer!
+    var player:  AVAudioPlayer!
     
     func play(_ filename: URL, delegate: AVAudioPlayerDelegate) {
         session = AVAudioSession.sharedInstance()
@@ -29,7 +29,6 @@ class Player: NSObject {
             player = try AVAudioPlayer(contentsOf: filename)
             player.prepareToPlay()
             player.volume = 1.0
-//            player.delegate = self
             player.delegate = delegate
             player.play()
             print("play")
@@ -39,12 +38,3 @@ class Player: NSObject {
     }
     
 }
-
-
-//extension Player: AVAudioPlayerDelegate {
-//    
-//    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
-//        print("Good!")
-//    }
-//    
-//}

@@ -20,7 +20,7 @@ public class StackView: UIStackView {
         
         switch axis {
         case .horizontal:
-            self.axis = .horizontal
+            self.axis    = .horizontal
             distribution = .equalSpacing
         case .vertical:
             self.axis = .vertical

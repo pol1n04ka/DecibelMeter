@@ -12,9 +12,9 @@ class SubscribeView: UIViewController {
     
     private let app = UIApplication.shared.delegate
     
-    lazy var image = ImageView(image: .human)
+    lazy var image   = ImageView(image: .human)
     lazy var heading = Label(style: .heading, "YOUR HEALTH IS ABOVE ALL!")
-    lazy var body = Label(style: .body, "Subscribe to unlock all the features, just $3.99/week")
+    lazy var body    = Label(style: .body, "Subscribe to unlock all the features, just $3.99/week")
     
     lazy var containerForStack: UIView = {
         let v = UIView()
@@ -59,7 +59,7 @@ class SubscribeView: UIViewController {
         super.init(nibName: nil, bundle: nil)
         
         self.heading.text = heading
-        self.body.text = body
+        self.body.text    = body
     }
     
     required init?(coder: NSCoder) {
@@ -76,14 +76,14 @@ extension SubscribeView {
         view.backgroundColor = UIColor(named: "BackgroundColor")
         
         separatorOne.textAlignment = .center
-        separatorOne.textColor = .black
-        separatorOne.text = "|"
-        separatorOne.font = UIFont(name: "OpenSans-Regular", size: 13)
+        separatorOne.textColor     = .black
+        separatorOne.text          = "|"
+        separatorOne.font          = UIFont(name: "OpenSans-Regular", size: 13)
         
         separatorTwo.textAlignment = .center
-        separatorTwo.textColor = .black
-        separatorTwo.text = "|"
-        separatorTwo.font = UIFont(name: "OpenSans-Regular", size: 13)
+        separatorTwo.textColor     = .black
+        separatorTwo.text          = "|"
+        separatorTwo.font          = UIFont(name: "OpenSans-Regular", size: 13)
         
         closeButton.layer.zPosition = 10
         closeButton.addTarget(self, action: #selector(closeOnboarding), for: .touchUpInside)
@@ -103,9 +103,9 @@ extension SubscribeView {
         mainstackView.setCustomSpacing(-5, after: image)
         mainstackView.setCustomSpacing(10, after: heading)
         
-        image.translatesAutoresizingMaskIntoConstraints = false
+        image.translatesAutoresizingMaskIntoConstraints   = false
         heading.translatesAutoresizingMaskIntoConstraints = false
-        body.translatesAutoresizingMaskIntoConstraints = false
+        body.translatesAutoresizingMaskIntoConstraints    = false
     
         view.addSubview(closeButton)
         view.addSubview(continueButton)
@@ -133,8 +133,6 @@ extension SubscribeView {
             
             // MARK: Stack view
             stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -15),
-//            stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 25),
-//            stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -25)
             stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ]
 

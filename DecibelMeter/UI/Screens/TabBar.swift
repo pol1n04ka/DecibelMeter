@@ -28,7 +28,7 @@ class TabBar: UITabBarController {
 extension TabBar {
     
     private func setupView() {
-        let saved = SavedView()
+        let saved     = SavedView()
         let savedIcon = UITabBarItem(
             title: "Saved",
             image: UIImage(named: "Save")?.withRenderingMode(.alwaysOriginal),
@@ -36,7 +36,7 @@ extension TabBar {
         )
         saved.tabBarItem = savedIcon
         
-        let home = RecordView()
+        let home     = RecordView()
         let homeIcon = UITabBarItem(
             title: nil,
             image: UIImage(named: "Home")?.withRenderingMode(.alwaysOriginal),
@@ -44,7 +44,7 @@ extension TabBar {
         )
         home.tabBarItem = homeIcon
         
-        let settings = SettingsView()
+        let settings     = SettingsView()
         let settingsIcon = UITabBarItem(
             title: "Settings",
             image: UIImage(named: "Settings")?.withRenderingMode(.alwaysOriginal),
@@ -56,10 +56,10 @@ extension TabBar {
         
         viewControllers = views
         
-        self.tabBar.backgroundColor = UIColor(named: "BackgroundColorTabBar")
-        self.tabBar.isTranslucent = false
-        self.tabBar.barTintColor = UIColor(named: "BackgroundColorTabBar")
-        self.tabBar.tintColor = .white
+        self.tabBar.backgroundColor         = UIColor(named: "BackgroundColorTabBar")
+        self.tabBar.isTranslucent           = false
+        self.tabBar.barTintColor            = UIColor(named: "BackgroundColorTabBar")
+        self.tabBar.tintColor               = .white
         self.tabBar.unselectedItemTintColor = .white
     }
     

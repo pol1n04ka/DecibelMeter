@@ -30,16 +30,8 @@ public class Persist {
 
         rename("newRecording", info.id.uuidString)
         
-//        guard let path = filePath(for: info.id.uuidString) else {
-//            print("Error")
-//            return
-//        }
-//        
-//        self.path = path
-//        
-//        print(path)
+        let newRecording    = Record(context: context)
         
-        let newRecording = Record(context: context)
         newRecording.id     = info.id
         newRecording.name   = info.name
         newRecording.length = info.length
@@ -53,12 +45,6 @@ public class Persist {
         } catch {
             print(error)
         }
-    }
-    
-    /// Finds audio from documents directory and returns file for play
-    public func getAudio(for key: String) {
-        // Code for getting audio. Need to
-        // find files by URL from Core Data.
     }
     
     /// Finds all audio in Core Data and returns array with data about them
@@ -75,8 +61,8 @@ public class Persist {
     
     /// Rename recently saved audio
     private func rename(_ initialName: String, _ resultName: String) {
-        let fileManager = FileManager.default
-        guard let path = filePath(for: initialName) else { return }
+        let fileManager      = FileManager.default
+        guard let path       = filePath(for: initialName) else { return }
         guard let resultPath = filePath(for: resultName) else { return }
 
         do {

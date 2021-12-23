@@ -21,10 +21,11 @@ class AvgMinMaxBar: UIView {
     lazy var mainStack: UIStackView = {
         let s = UIStackView()
         
-        s.axis = .horizontal
-        s.alignment = .fill
+        s.axis         = .horizontal
+        s.alignment    = .fill
         s.distribution = .fillProportionally
-        s.spacing = 50
+        s.spacing      = 50
+        
         s.translatesAutoresizingMaskIntoConstraints = false
         
         return s

@@ -17,19 +17,19 @@ class SavedCell: UITableViewCell {
         return playButton.uuid
     }
     
-    private lazy var stack = StackView(axis: .vertical)
+    private lazy var stack       = StackView(axis: .vertical)
     
-    private lazy var topStack = StackView(axis: .horizontal)
-    private lazy var soundName = Label(style: .tableTopText, "26.01.2022, 20:43")
+    private lazy var topStack    = StackView(axis: .horizontal)
+    private lazy var soundName   = Label(style: .tableTopText, "26.01.2022, 20:43")
     
     private lazy var topPodstack = StackView(axis: .horizontal)
-    private lazy var timeIcon = ImageView(image: .timeIcon)
-    private lazy var timeLabel = Label(style: .tableTopText, "01:25")
+    private lazy var timeIcon    = ImageView(image: .timeIcon)
+    private lazy var timeLabel   = Label(style: .tableTopText, "01:25")
     
     private lazy var bottomStack = StackView(axis: .horizontal)
-    private lazy var min = Label(style: .tableBottomText, "MIN 20")
-    private lazy var max = Label(style: .tableBottomText, "MAX 75")
-    private lazy var avg = Label(style: .tableBottomText, "AVG 82")
+    private lazy var min         = Label(style: .tableBottomText, "MIN 20")
+    private lazy var max         = Label(style: .tableBottomText, "MAX 75")
+    private lazy var avg         = Label(style: .tableBottomText, "AVG 82")
     
     private lazy var chevron = ImageView(image: .chevron)
     
@@ -48,6 +48,7 @@ class SavedCell: UITableViewCell {
     ) {
         self.soundName.text = name
         self.timeLabel.text = time
+        
         self.min.text = min
         self.max.text = max
         self.avg.text = avg

@@ -12,9 +12,9 @@ class FunctionalDescribingSlide: UICollectionViewCell {
     
     public static let identifier = "FunctionalDescribingSlide"
     
-    lazy var image = ImageView(image: .soundLevels)
+    lazy var image   = ImageView(image: .soundLevels)
     lazy var heading = Label(style: .heading, "SAVING SOUND LEVEL MEASUREMENTS")
-    lazy var body = Label(style: .body, "Save and export recorded sound measurements")
+    lazy var body    = Label(style: .body, "Save and export recorded sound measurements")
     
     lazy var stackView = StackView(axis: .vertical)
     

@@ -12,9 +12,9 @@ class RatingSlide: UICollectionViewCell {
     
     public static let identifier = "RatingSlide"
     
-    lazy var image = ImageView(image: .rating)
+    lazy var image   = ImageView(image: .rating)
     lazy var heading = Label(style: .heading, "HELP US TO IMPROVE OUR APP")
-    lazy var body = Label(style: .body, "We are constantly improving and need your opinion")
+    lazy var body    = Label(style: .body, "We are constantly improving and need your opinion")
     
     lazy var backgroundImage = ImageView(image: .ratingBack)
     

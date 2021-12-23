@@ -18,7 +18,6 @@
 		367CE2C527492FF300AD5010 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367CE2C427492FF300AD5010 /* Stack.swift */; };
 		369056972757C7230019184B /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369056962757C7220019184B /* SettingsCell.swift */; };
 		3697E3A52749177E00C5BE5B /* Recorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3697E3A42749177E00C5BE5B /* Recorder.swift */; };
-		3697E3A9274917F500C5BE5B /* SoundLevelDiagram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3697E3A8274917F500C5BE5B /* SoundLevelDiagram.swift */; };
 		3697E3AB2749180500C5BE5B /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3697E3AA2749180500C5BE5B /* Label.swift */; };
 		3697E3AD2749180C00C5BE5B /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3697E3AC2749180C00C5BE5B /* Button.swift */; };
 		3697E3AF2749187400C5BE5B /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3697E3AE2749187400C5BE5B /* Image.swift */; };
@@ -58,7 +57,6 @@
 		367CE2C427492FF300AD5010 /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		369056962757C7220019184B /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		3697E3A42749177E00C5BE5B /* Recorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recorder.swift; sourceTree = "<group>"; };
-		3697E3A8274917F500C5BE5B /* SoundLevelDiagram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundLevelDiagram.swift; sourceTree = "<group>"; };
 		3697E3AA2749180500C5BE5B /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		3697E3AC2749180C00C5BE5B /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		3697E3AE2749187400C5BE5B /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
@@ -134,7 +132,6 @@
 		36ADD0352747EFBD00B9F90D /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				3697E3A8274917F500C5BE5B /* SoundLevelDiagram.swift */,
 				3697E3AA2749180500C5BE5B /* Label.swift */,
 				3697E3AC2749180C00C5BE5B /* Button.swift */,
 				3697E3AE2749187400C5BE5B /* Image.swift */,
@@ -405,7 +402,6 @@
 				36D046222747F82900EDE28A /* Subscribe.swift in Sources */,
 				36D046242747F83000EDE28A /* SettingsView.swift in Sources */,
 				362E7878274934B50036CAD5 /* SubscribeSlide.swift in Sources */,
-				3697E3A9274917F500C5BE5B /* SoundLevelDiagram.swift in Sources */,
 				36CCE92B2747E40600997592 /* AppDelegate.swift in Sources */,
 				367CE2C327492FD500AD5010 /* OnboardingManager.swift in Sources */,
 				36D0461E2747F61A00EDE28A /* Persist.swift in Sources */,

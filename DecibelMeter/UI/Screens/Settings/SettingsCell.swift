@@ -10,8 +10,8 @@ import UIKit
 
 class SettingsCell: UITableViewCell {
     
-    private var icon: ImageView?
-    private var label: Label?
+    private var icon:   ImageView?
+    private var label:  Label?
     public var _switch: UISwitch?
     
     @objc private func toogleAutoRecord(_ sender: UISwitch) {
@@ -41,7 +41,7 @@ class SettingsCell: UITableViewCell {
         addSubview(self.icon!)
         addSubview(self.label!)
         
-        self.icon!.translatesAutoresizingMaskIntoConstraints = false
+        self.icon!.translatesAutoresizingMaskIntoConstraints  = false
         self.label!.translatesAutoresizingMaskIntoConstraints = false
         
         let constraints = [

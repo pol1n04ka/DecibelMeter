@@ -24,8 +24,9 @@ class SavedView: UIViewController {
         let t = UITableView()
         
         t.translatesAutoresizingMaskIntoConstraints = false
-        t.delegate = self
-        t.dataSource = self
+        
+        t.delegate        = self
+        t.dataSource      = self
         t.backgroundColor = .clear
         
         return t
@@ -45,7 +46,7 @@ class SavedView: UIViewController {
         super.viewDidAppear(animated)
         
         guard let result = persist.fetch() else { return }
-        recordings = result
+        recordings       = result
         
         tableView.reloadData()
         
@@ -97,7 +98,6 @@ class SavedView: UIViewController {
         let cell = tableView.cellForRow(at: [0, sender.tag]) as? SavedCell
         
         if sender.tag == 0 {
-//            cell?.isPlaying = false
             tagPlaying = 0
         }
         
@@ -219,8 +219,8 @@ extension SavedView {
     
     func share(indexPath: IndexPath) {
         guard let recordings = recordings else { return }
-        let recording = recordings[indexPath.row]
-        guard let path = persist.filePath(for: recording.id!.uuidString) else { return }
+        let recording        = recordings[indexPath.row]
+        guard let path       = persist.filePath(for: recording.id!.uuidString) else { return }
         
         let activityVC = UIActivityViewController(
             activityItems: [path],
